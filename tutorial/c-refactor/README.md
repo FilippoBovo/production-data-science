@@ -1,22 +1,20 @@
 # C - Refactor
 
-In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we prepared in [part A - Setup](../a-setup).
+In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in [part A - Setup](../a-setup).
 
-[TOC]
-
-![refactor](/Users/fil/Satalia/production_data_science/production_data_science/resources/refactor.png)
+![refactor](../../resources/refactor.png)
 
 ## Refactoring for Exploration
 
-The code in the Jupyter Notebook that we saw in the previous part of this tutorial is written as a script. The idea of refactoring for exploration is to **restructure code _and_ text so that analyses are easier to understand and further exploration becomes faster to do**. For this, it is useful to introduce the concept of _code to text ratio_,
-$$
-\frac{\text{code}}{\text{text}}
-$$
-Because the main purpose of an exploratory analysis is to prove a point rather than showing code, refactoring for exploration should aim at _reducing the code to text ratio, within reason_. In this way, a notebook would look more like a document that uses words (and plots) to reason and prove a point.
+The code in the Jupyter Notebook that we saw in the previous part of this tutorial is written as a script. The idea of refactoring for exploration is to **restructure code _and_ text so that analyses are easier to understand and further exploration becomes faster to do**. For this, it is useful to introduce the concept of _code to text ratio_.
+
+Because the main purpose of an exploratory analysis is to prove a point rather than showing code, refactoring for exploration should be aimed at _reducing the code to text ratio, within reason_. In this way, a notebook would look more like a document that uses words (and plots) to reason and prove a point.
 
 However, with this criterion, we may as well increase the number of words, just to decrease the code to text ratio. This leads to longer documents that are both text and code heavy and, in turn, harder to read. A better solution is to **simplify both code and text, while keeping the code to word ratio reasonably low**.
 
-It is important to understand that this is just a _qualitative criterion_ which should act more as a principle rather than a rule. This is why the words "within reason" and "reasonably" were specified in the italic sentences above. For example, if an analysis just needs few words to prove a point, it does not make sense to forcefully simplify the code to obtain a better code to word ratio. In other words, _rather than blindly following rules, understand the principles and the motivations behind them, and do what makes most sense_.[^1]
+It is important to understand that this is just a _qualitative criterion_ which should act more as a principle rather than a rule. This is why the words "within reason" and "reasonably" were specified in the italic sentences above. For example, if an analysis just needs few words to prove a point, it does not make sense to forcefully simplify the code to obtain a better code to word ratio. In other words, _rather than blindly following rules, understand the principles and the motivations behind them, and do what makes most sense_.
+
+> A similar concept is stated in the Python PEP 8 document: [A Foolish Consistency is the Hobgoblin of Little Minds](https://www.python.org/dev/peps/pep-0008/#id15).
 
 Note that if an analysis does not lead to any useful result or did not develop useful tools, _it may as well be useless to refactor it_.
 
@@ -25,7 +23,7 @@ Following the principle above, a possible workflow for refactoring notebooks is 
 1. At first, we can move repeated scripts into functions that are called multiple times, reducing the amount of code in the notebook and, therefore, improving readability.
 2. Functions that become widely used in the analysis, can be moved into [Python modules](https://docs.python.org/3/tutorial/modules.html) located in the same directory of the exploratory analysis. This further reduces the code in the notebook and allows the functions to be called from other notebooks or scripts in the same folder of the analysis.
 3. Functions that become particularly important, can be made more solid by writing unit tests, as explained in the section below.
-4. Functions that are particularly useful can be moved into a Python package in the [`exploration`](exploration) folder, that is, outside the folder of a particular analysis, so that they can be used for different analyses.
+4. Functions that are particularly useful can be moved into a Python package in the [`exploration/`](exploration) folder, that is, outside the folder of a particular analysis, so that they can be used for different analyses.
 
 The same workflow is easily adapted to IDEs and text editors.
 
@@ -42,9 +40,9 @@ In data processing, the general idea to [write tests](https://pandas.pydata.org/
 3. Compare the processed input dataset and expected output dataset
 
 
-In predictive modelling, the situation is similar if we take the model predictions as output and we fix the random seed if random processes are involved. However, if we would like to improve the model along the way, we must allow the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. For this purpose, there are some testing tools for Python:
+In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. For this purpose, there are some testing tools for Python:
 
-- [Hypothesis](https://hypothesis.readthedocs.io) — A package for creating unit tests which are simpler to write and more powerful when run, finding edge cases in your code you wouldn’t have thought to look for
+- [Hypothesis](https://hypothesis.readthedocs.io) — A package to create unit tests which are simpler to write and more powerful when run, finding edge cases in your code you wouldn’t have thought to look for
 - [Engarde](http://engarde.readthedocs.io/) — A package for defensive data analysis
 - [Faker](https://faker.readthedocs.io) — A package to generate fake data
 - [Feature Forge](https://feature-forge.readthedocs.io) — A package that provides some help with the boilerplate of defining features and help you testing them
@@ -72,7 +70,7 @@ git checkout -b refactor_explore_survival
 
 Then, click on the following links to see the refactoring.
 
-- [**➠   Refactored Jupyter Notebook**](exploration/cleaning_engineering_logistic_regression.ipynb) (See sections _Feature Engineering_ and _Predictions_)
+- [**➠   Refactored Jupyter Notebook**](exploration/cleaning_engineering_logistic_regression.ipynb) (See orange text for refactoring.)
 - [**➠   Data manipulation module: *data.py***](titanic/titanic/data.py)
 - [**➠   Predictive models module: *models.py***](titanic/titanic/models.py)
 
@@ -129,6 +127,7 @@ Moreover, it is useful to implement a command line tool to run the pipeline. For
 
 ```shell
 pip install click==6.7
+pip freeze | grep -v titanic > titanic/requirements.txt
 ```
 
 We also add the following lines to [titanic/setup.py](titanic/setup.py).
@@ -149,11 +148,11 @@ setup(
 )
 ```
 
-The command line tool is implemented in the following file.
+The command line tool is implemented in the following file,
 
 [**➠   Go to the command line module: *command_line.py***](titanic/titanic/command_line.py)
 
-We can run the pipeline from the command line.
+and can be run using the following command.
 
 ```shell
 titanic_analysis --filename data/titanic.csv
@@ -162,16 +161,14 @@ titanic_analysis --filename data/titanic.csv
 Finally, we commit the changes and push the content to the GitHub repository.
 
 ```shell
-git commit . -m "refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
+git commit . -m "Refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
 git checkout master 
 git merge refactor_explore_survival
 git push
 ```
 
-In this part of the tutorial we saw how to refactor for exploration and production, and refactored for production the notebook into the [Titanic package](titanic).
+In this part of the tutorial we saw how to refactor an exploratory analysis and create a data pipeline interfaced through the command line.
 
-For your next project, you can now use the Cookiecutter template based on this tutorial.
+For your next project, you can use the Cookiecutter template based on this tutorial.
 
 [**➠   Go to the Project Template**](../../template)
-
-[^1]: A similar concept is stated in the Python PEP 8 document: [A Foolish Consistency is the Hobgoblin of Little Minds](https://www.python.org/dev/peps/pep-0008/#id15).

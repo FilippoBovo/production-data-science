@@ -2,9 +2,9 @@
 
 We can use [Cookiecutter](http://cookiecutter.readthedocs.io/en/latest/readme.html), to initialise a project using a template with the same structure seen in the tutorial.
 
-We start by [creating a repository on GitHub](https://help.github.com/articles/creating-a-new-repository/) *without* choosing any additional option, like initialising a readme file. In the following, we refer to the GitHub repository name with *\<project_name\>*.
+We start by [creating a repository on GitHub](https://help.github.com/articles/creating-a-new-repository/) *without* choosing any additional option, like initialising a readme file. In the following, *\<project_name\>* refers to the GitHub repository name.
 
-Install Coockiecutter if you do not have it already installed.
+Install Coockiecutter if you do not have it already.
 
 ```shell
 pip install cookiecutter
@@ -32,7 +32,7 @@ git remote add origin <remote_repository_url>
 git push -u origin master
 ```
 
-Here, *\<package_name\>* is the name of the Python package to be used to productionise the exploratory work. They should match the respective values you imputed in Cookiecutter.
+Here, *\<package_name\>* is the name of the Python package to be used to productionise the exploratory work, and should match the respective value you imputed in Cookiecutter.
 
 Now, create a branch, switch to it,
 
@@ -40,4 +40,4 @@ Now, create a branch, switch to it,
 git checkout -b <branch_name>
 ```
 
-and you are ready to start! 🎉
+and you are ready! 🎉

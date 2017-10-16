@@ -21,8 +21,8 @@ setup(
     ],
     # Substitute <github_account> with the name of your GitHub account
     url='https://github.com/<github_account>/titanic',
-    author='Filippo Bovo',
-    author_email='filippo@satalia.com',
+    author='Filippo Bovo',  # Substitute your name
+    author_email='filippo@satalia.com',  # Substitute your email
     license='MIT',
     packages=['titanic'],
     install_requires=[
