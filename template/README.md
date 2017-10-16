@@ -19,7 +19,7 @@ git clone git@github.com:Satalia/production-data-science.git $TMPDIR/production_
 Go to the folder where you would like to store the project and create the project template.
 
 ```shell
-cd <folder-to-store-project>
+cd <folder_to_store_project>
 cookiecutter $TMPDIR/production_data_science_template/template
 ```
 
