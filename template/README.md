@@ -10,10 +10,17 @@ Install Coockiecutter if you do not have it already.
 pip install cookiecutter
 ```
 
+Clone this repository to the system temporary folder.
+
+```shell
+git clone git@github.com:Satalia/production-data-science.git $TMPDIR/production_data_science_template
+```
+
 Go to the folder where you would like to store the project and create the project template.
 
 ```shell
-cookiecutter https://github.com/Satalia/production_data_science/template
+cd <folder-to-store-project>
+cookiecutter $TMPDIR/production_data_science_template/template
 ```
 
 You will be prompted with values to fill, like the project name (use *\<project_name\>*), the package name and the author name.
