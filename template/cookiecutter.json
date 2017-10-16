@@ -1,0 +1,11 @@
+{
+    "project_name": "Titanic",
+    "package_name": "titanic",
+    "package_short_description": "Analysis of the Titanic dataset",
+    "project_url": "https://github.com/<github_account>/<repository_name>",
+    "package_version": "0.1",
+    "package_license": "...",
+    "author_name": "Filippo Bovo",
+    "author_email": "filippo@satalia.com",
+    "author_github_account": "FilippoBovo"
+}
