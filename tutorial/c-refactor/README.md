@@ -12,10 +12,6 @@ Because the main purpose of an exploratory analysis is to prove a point rather t
 
 However, with this criterion, we may as well increase the number of words, just to decrease the code to text ratio. This leads to longer documents that are both text and code heavy and, in turn, harder to read. A better solution is to **simplify both code and text, while keeping the code to word ratio reasonably low**.
 
-It is important to understand that this is just a _qualitative criterion_ which should act more as a principle rather than a rule. This is why the words "within reason" and "reasonably" were specified in the italic sentences above. For example, if an analysis just needs few words to prove a point, it does not make sense to forcefully simplify the code to obtain a better code to word ratio. In other words, _rather than blindly following rules, understand the principles and the motivations behind them, and do what makes most sense_.
-
-> A similar concept is stated in the Python PEP 8 document: [A Foolish Consistency is the Hobgoblin of Little Minds](https://www.python.org/dev/peps/pep-0008/#id15).
-
 Note that if an analysis does not lead to any useful result or did not develop useful tools, _it may as well be useless to refactor it_.
 
 Following the principle above, a possible workflow for refactoring notebooks is the following.
@@ -30,6 +26,8 @@ The same workflow is easily adapted to IDEs and text editors.
 ## Refactoring for Production
 
 Once an exploratory analysis has taken a certain direction, it is useful to refactor the parts of the code that are going into production, as, for example, the functions and methods that will form data pipelines.
+
+[Refactoring for production](https://en.wikipedia.org/wiki/Code_refactoring) is a field covering many areas, such as readability, code complexity, code architecture and testing. To make the tutorial easy to follow, the code was already made readable and the Titanic toy-example problem kept the complexity and architecture simple. So, in this section we will focus just on testing.
 
 Because refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on unit testing methodologies. Moreover, data science broadly involve data preprocessing and predictive modelling, for which testing can be done differently.
 
@@ -49,7 +47,7 @@ In predictive modelling, the situation is similar if we take the model predictio
 
 ## Refactoring the Notebook
 
-In this section, we refactor some of the [notebook](exploration/cleaning_engineering_logistic_regression.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the modules [`titanic/titanic/data.py`](titanic/titanic/data.py) and [`titanic/titanic/models.py`](titanic/titanic/models.py) where we put respectively functions for data processing and predictive modelling.
+In this section, we refactor some of the [notebook](exploration/cleaning_engineering_logistic_regression.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the modules [`titanic/titanic/data.py`](titanic/titanic/data.py) and [`titanic/titanic/models.py`](titanic/titanic/models.py) where we put respectively functions for data processing and predictive modelling. We use this modular approach motivated by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), which states that each bit of code should be focused on a single task with a limited scope. Some reasons behind this principle are that modular files are easier to maintain, discourage the use of global variables, and encourage the use of  variables with narrow scopes and input and output parameters.
 
 We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt), as it is more readable that the standard [Python reStructuredText format](https://www.python.org/dev/peps/pep-0287/).
 
@@ -127,7 +125,7 @@ Moreover, it is useful to implement a command line tool to run the pipeline. For
 
 ```shell
 pip install click==6.7
-pip freeze | grep -v titanic > titanic/requirements.txt
+pip freeze | grep -v titanic > requirements.txt
 ```
 
 We also add the following lines to [titanic/setup.py](titanic/setup.py).

@@ -31,7 +31,7 @@ Create a virtual environment and install the package.
 cd <project_name>
 mkvirtualenv <package_name>
 pip install -e <package_name>
-pip freeze | grep -v <package_name> > <package_name>/requirements.txt
+pip freeze | grep -v <package_name> > requirements.txt
 git init
 git add .
 git commit -m "First commit"
@@ -40,6 +40,12 @@ git push -u origin master
 ```
 
 Here, *\<package_name\>* is the name of the Python package to be used to productionise the exploratory work, and should match the respective value you imputed in Cookiecutter.
+
+Moreover, if you are planning to use the Jupyter Notebook, you have to install the kernel of the environment.
+
+```shell
+python -m ipykernel install --user --name <package_name>
+```
 
 Now, create a branch, switch to it,
 

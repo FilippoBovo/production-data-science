@@ -2,6 +2,8 @@
 
 In the first part of the tutorial, we set up the project, so that we start with an effective working environment.
 
+> Note to Windows users: The commands in tutorial work on the Unix Bash command line. In order to get them to work on Windows, you may use [Cygwin](https://www.cygwin.com/).
+
 ## Virtual Environment
 
 Python has a useful feature, called [virtual environment](https://docs.python.org/3/tutorial/venv.html), which allows to hold a collection of packages in an isolated Python enviroment. Because we want to keep the packages associated to this project separated from those associated to other projects, we create a virtual environment.  After making sure that Python 3 is installed in the system, we use [`virtualenvwrapper`](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) to initialise a virtual environment called `titanic`.
@@ -91,6 +93,8 @@ README.md
 >
 > Asking question about the box in the middle may help clarify what is needed for the project. This does not mean trying to predict the details of the projects ahead of time, as this would lead to a strict template that prevents flexibility. Instead, this diagram should help understand what is necessary.
 
+Now that the project structure has been set up, note that all the commands in this tutorial are run from the root folder of the project.
+
 ## Logging
 
 Logging is an important task for software development that should handle the messages that help user understand what the code does. With the [Python logging module](https://docs.python.org/3/library/logging.html) we can handle messages in different ways using configuration files, without having to change the code.
@@ -111,10 +115,10 @@ Because the Python logging module does not natively support logging configuratio
 
 ## Reproducibility
 
-In order for other people to be able to reproduce the same environment that we are using, we create the file [`titanic/requirements.txt`](titanic/requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
+In order for other people to be able to reproduce the same environment that we are using, we create the file [`requirements.txt`](titanic/requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
 
 ```shell
-pip freeze | grep -v titanic > titanic/requirements.txt
+pip freeze | grep -v titanic > requirements.txt
 ```
 
 The `grep -v titanic` command omits the local package `titanic` to avoid errors when installing packages from the requirement file, as we will see in section [Collaboration](#collaboration).
@@ -174,8 +178,8 @@ If other people would like to contribute to the project, they just need to get t
 ```shell
 git clone <git-repository>
 cd titanic
-mkvirtualenv --python=python3.6 titanic
-pip install -r titanic/requierements.txt
+mkvirtualenv --python=python3 titanic
+pip install -r requirements.txt
 pip install -e titanic
 ```
 
