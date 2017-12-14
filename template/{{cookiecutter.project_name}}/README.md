@@ -22,8 +22,9 @@ First, make sure that you have [virtualenvwrapper](https://virtualenvwrapper.rea
 ```shell
 mkvirtualenv {{cookiecutter.package_name}}
 git clone {{cookiecutter.project_url}}
+pip install -r requirements.txt
 pip install -e {{cookiecutter.package_name}}
-pip freeze | grep -v {{cookiecutter.package_name}} > {{cookiecutter.package_name}}/requirements.txt
+pip freeze | grep -v {{cookiecutter.package_name}} > requirements.txt
 ```
 
 Then, check the [README.md]({{cookiecutter.package_version}}/README.md), and create or select a GitHub branch and have fun... :smiley:
