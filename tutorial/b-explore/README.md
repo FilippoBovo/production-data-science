@@ -20,19 +20,19 @@ We start by creating a new branch called `explore_survival`.
 git checkout -b explore_survival
 ```
 
-It is useful to name the branch by starting with `explore_` when the branch is used for exploration.
+It is useful to name the branch by starting with `explore_` when the branch is used for exploration, so that we do not confuse them with branches done for refactoring.
 
 > It is important to use explicit names for branching, so that other people can easily understand the purpose of the branch.
 
 ## Tools
 
-There are [several tools for exploratory data analysis in Python](https://www.datacamp.com/community/tutorials/data-science-python-ide). Some of the most widely used are,
+There are [several softwares for exploratory data analysis in Python](https://www.datacamp.com/community/tutorials/data-science-python-ide). Some of the most widely used are,
 
 - [Jupyter Notebook](http://jupyter.org/)
 - [Spyder](https://github.com/spyder-ide/spyder) or other IDEs specific to data science
 - Normal text editors
 
-Even though choosing a single tool for exploratory data analysis across different people would make things tidier, it is better to explore by using your favourite tools. The important thing is to insure that the exploratory work is reproducible and clearly explained to make life easier to other people.
+Even though choosing a single software for exploratory data analysis across different people would be more consistent, it may be better to explore by using your favourite one, so that you can be more effective in your analyses. The important thing is to make sure that the exploratory work is reproducible and clearly explained to make life easier to other people.
 
 > **In collaborative work, make life easier to other people by following good coding practices and by explaining concepts, intentions and assumptions clearly.**
 >
@@ -49,7 +49,7 @@ In this tutorial, as exploratory tool we choose the Jupyter Notebook as it is a 
 
 ```shell
 pip install jupyter
-python -m ipykernel install --user --name=titanic
+python -m ipykernel install --user --name=titanic  # Install the Jupyter kernel
 ```
 
 We also need some other data science packages.
@@ -59,9 +59,9 @@ pip install watermark==1.5.0 pandas==0.20.3 scikit-learn==0.19.0 scipy==0.19.1 m
 pip freeze | grep -v titanic > requirements.txt
 ```
 
-Now we are ready to move to the notebook.
+Now we are ready to move to the notebook by clicking on the following link.
 
-[**➠   Go to the analysis in the Jupyter Notebook**](exploration/cleaning_engineering_logistic_regression.ipynb)
+[**➠   Go to the analysis in the Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb)
 
 Finally, we commit our changes to the branch and, since we concluded the work on this branch, we merge it with the master branch.
 
@@ -84,7 +84,7 @@ To make it easy for other people and your future-self to navigate exploratory an
 
 - ***Single Result*** — Each exploratory project should prove a single result.
 - ***Dedicated Folder*** — Each exploratory project should be placed in a dedicated folder. Even if you start with a single file, use a dedicated folder as more files are likely to be created later on. Moreover, in this way the structure of the exploratory folder is consistent.
-- ***Meaningful Name*** — Giving the exploratory project a name that shows what is done inside, like `cleaning_engineering_logistic_regression` for the notebook just seen. In this case, in the file name we stated the content, but, depending on the *main message of the notebook*, the name can state the (single) intention or result of the notebook.
+- ***Meaningful Name*** — Give the exploratory project a name that shows what is done inside, like `predict_survival_using_logistic_regression_with_sex_age_title` for the one just seen.
 - ***Exploration = Document*** — Treat the exploratory project as a document to explain the logic of the analysis. In a Jupyter Notebook this can be done using the Markdown feature. With other tools, it may be useful to write the explanation in code comments and in `README.md`, which will also be displayed automatically by GitHub.
 - ***Author Contact*** — Write the author name(s), GitHub account(s) and, if necessary, email(s). This ensures that if the content of a notebook is not clear, it is easy to reach someone who can clarify.
 - ***Achievement*** — State the (single) achievement at the beginning of the notebook or readme file. This allows people to know the result, without having to go through the whole notebook.
@@ -95,13 +95,14 @@ As an example, if this project were to expand, the structure of the folder `expl
 
 ```
 exploration/
-	cleaning_engineering_logistic_regression.ipynb        # Jupyter Notebook
-	feature_selection/                                    # Spider (IDE)
+	predict_survival_using_logistic_regression_with_sex_age_title/
+		analysis.ipynb                                              # Jupyter Notebook
+	relation_between_age_and_survival/                              # Spyder (IDE)
 		.spyproject/
 			<spyder_stuff>
 		analysis.py
 		README.md
-	logistic_regression_vs_svm/                           # Normal text editor
+	logistic_regression_vs_svm/                                     # Normal text editor
 		analysis.py
 		plots/
 		README.md

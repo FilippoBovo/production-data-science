@@ -8,18 +8,21 @@ In the third part of this worked example, we refactor the code of the exploratio
 
 The code in the Jupyter Notebook that we saw in the previous part of this tutorial is written as a script. The idea of refactoring for exploration is to **restructure code _and_ text so that analyses are easier to understand and further exploration becomes faster to do**. For this, it is useful to introduce the concept of _code to text ratio_.
 
-Because the main purpose of an exploratory analysis is to prove a point rather than showing code, refactoring for exploration should be aimed at _reducing the code to text ratio, within reason_. In this way, a notebook would look more like a document that uses words (and plots) to reason and prove a point.
+Since the main purpose of an exploratory analysis is to prove a point rather than showing code, refactoring for exploration should be aimed at _reducing the code to text ratio, within reason_. In this way, a notebook would look more like a document that uses words (and plots) to reason and prove a point.
 
 However, with this criterion, we may as well increase the number of words, just to decrease the code to text ratio. This leads to longer documents that are both text and code heavy and, in turn, harder to read. A better solution is to **simplify both code and text, while keeping the code to word ratio reasonably low**.
+
+> I had the idea of code to text ratio from the data-ink ratio introduced by Edward Tufte in [*The Visual Display of Quantitative Information*](https://www.edwardtufte.com/tufte/books_vdqi) as a quantity to maximise to convey information through graphic in a more effective way.
+>
+> Related to code to text ratio is Donald Knuth's paradigm of [literate programming](https://en.wikipedia.org/wiki/Literate_programming) that encourages people to write for people, rather than computers.
 
 Note that if an analysis does not lead to any useful result or did not develop useful tools, _it may as well be useless to refactor it_.
 
 Following the principle above, a possible workflow for refactoring notebooks is the following.
 
-1. At first, we can move repeated scripts into functions that are called multiple times, reducing the amount of code in the notebook and, therefore, improving readability.
+1. Repeated scripts can be moved into functions that are called multiple times, reducing the amount of code in the notebook and, therefore, improving readability.
 2. Functions that become widely used in the analysis, can be moved into [Python modules](https://docs.python.org/3/tutorial/modules.html) located in the same directory of the exploratory analysis. This further reduces the code in the notebook and allows the functions to be called from other notebooks or scripts in the same folder of the analysis.
 3. Functions that become particularly important, can be made more solid by writing unit tests, as explained in the section below.
-4. Functions that are particularly useful can be moved into a Python package in the [`exploration/`](exploration) folder, that is, outside the folder of a particular analysis, so that they can be used for different analyses.
 
 The same workflow is easily adapted to IDEs and text editors.
 
@@ -29,7 +32,7 @@ Once an exploratory analysis has taken a certain direction, it is useful to refa
 
 [Refactoring for production](https://en.wikipedia.org/wiki/Code_refactoring) is a field covering many areas, such as readability, code complexity, code architecture and testing. To make the tutorial easy to follow, the code was already made readable and the Titanic toy-example problem kept the complexity and architecture simple. So, in this section we will focus just on testing.
 
-Because refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on unit testing methodologies. Moreover, data science broadly involve data preprocessing and predictive modelling, for which testing can be done differently.
+Since refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on standard testing methodologies. Moreover, data science broadly involve data preprocessing and predictive modelling, for which testing is done differently.
 
 In data processing, the general idea to [write tests](https://pandas.pydata.org/pandas-docs/stable/contributing.html#test-driven-development-code-writing) is to,
 
@@ -38,7 +41,7 @@ In data processing, the general idea to [write tests](https://pandas.pydata.org/
 3. Compare the processed input dataset and expected output dataset
 
 
-In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. For this purpose, there are some testing tools for Python:
+In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow for the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. For this purpose, there are some useful testing tools for Python:
 
 - [Hypothesis](https://hypothesis.readthedocs.io) — A package to create unit tests which are simpler to write and more powerful when run, finding edge cases in your code you wouldn’t have thought to look for
 - [Engarde](http://engarde.readthedocs.io/) — A package for defensive data analysis
@@ -53,7 +56,7 @@ We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blo
 
 > When refactoring, keep in mind that [**code is read much more often than it is written**](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds).
 >
-> In particular, these three actions help a lot:
+> In particular, these four actions help a lot:
 >
 > - Use explicit variable names
 > - Write docstrings
@@ -68,7 +71,7 @@ git checkout -b refactor_explore_survival
 
 Then, click on the following links to see the refactoring.
 
-- [**➠   Refactored Jupyter Notebook**](exploration/cleaning_engineering_logistic_regression.ipynb) (See orange text for refactoring.)
+- [**➠   Refactored Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) (See orange text for refactoring.)
 - [**➠   Data manipulation module: *data.py***](titanic/titanic/data.py)
 - [**➠   Predictive models module: *models.py***](titanic/titanic/models.py)
 
@@ -117,7 +120,7 @@ python -m pytest
 
 ## Data Pipeline
 
-If we are happy with our data processing and predictive model, we can implement the work into a pipeline in the [Titanic package](titanic).
+Next, we implement the work into a pipeline in the [Titanic package](titanic).
 
 [**➠   Go to the data pipeline module: *pipelines.py***](titanic/titanic/pipelines.py)
 
@@ -150,7 +153,7 @@ The command line tool is implemented in the following file,
 
 [**➠   Go to the command line module: *command_line.py***](titanic/titanic/command_line.py)
 
-and can be run using the following command.
+and is run using the following command.
 
 ```shell
 titanic_analysis --filename data/titanic.csv
