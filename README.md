@@ -22,7 +22,7 @@ We will present the data science workflow using a tutorial, based on the popular
 
 This tutorial assumes that you are familiar with Python 3, and relies on the assumption that you are skilled enough to use Google, StackExchange and other resources to fill some of the knowledge gaps that you may have. Another useful resource to get you started on new topics in Python is [The Hitchhiker’s Guide to Python](http://docs.python-guide.org/), which also includes references to more detailed material.
 
-The links in this tutorial should be used only when the symbol [**➠**]() appears. All other links point to further resources and are optional.
+The links in this tutorial should be used only when the symbol [**➠**](#) appears. All other links point to further resources and are optional.
 
 > Finally, quoted text is devoted to suggestions and observations.
 
