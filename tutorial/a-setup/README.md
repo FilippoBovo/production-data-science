@@ -1,14 +1,10 @@
 # A - Setup
 
+![exploration_refactoring_cycle](../../resources/setup.png)
+
 In the first part of the tutorial, we set up the project, so that we start with an effective working environment.
 
 > Note to Windows users: The commands in tutorial work on the Unix Bash command line. In order to get them to work on Windows, you can use [Cygwin](https://www.cygwin.com/) or related applications.
-
-
-
-![exploration_refactoring_cycle](../../resources/setup.png)
-
-
 
 ## Virtual Environment
 

@@ -1,12 +1,8 @@
 # D - Iterate to Product
 
-In the fourth part of this worked example, we discuss the iteration of the explore-refactor cycle and create a data pipeline that can be run from the command line, corresponding to our end-product.
-
-
-
 ![refactor](../../resources/iterate_to_product.png)
 
-
+In the fourth part of this worked example, we discuss the iteration of the explore-refactor cycle and create a data pipeline that can be run from the command line, corresponding to our end-product.
 
 ## Explore-Refactor Cycle
 

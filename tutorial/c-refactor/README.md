@@ -1,12 +1,8 @@
 # C - Refactor
 
-In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in part [A - Setup](../a-setup).
-
-
-
 ![refactor](../../resources/refactor.png)
 
-
+In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in part [A - Setup](../a-setup).
 
 ## Refactoring for Exploration
 
