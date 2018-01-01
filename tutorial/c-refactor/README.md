@@ -2,7 +2,11 @@
 
 In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in [part A - Setup](../a-setup).
 
+
+
 ![refactor](../../resources/refactor.png)
+
+
 
 ## Refactoring for Exploration
 
@@ -41,10 +45,13 @@ In data processing, the general idea to [write tests](https://pandas.pydata.org/
 3. Compare the processed input dataset and expected output dataset
 
 
-In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow for the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. For this purpose, there are some useful testing tools for Python:
+In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow for the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. This kind of testing is analogous to the [validation testing](https://en.wikipedia.org/wiki/Software_verification_and_validation) in software development, where tests check that systems meet some requirements. In our example, we may require that the logistic regression model performs _at least_ as well as the majority vote classifier. Note that to run this validation test we need to store some data. For this example, we choose the entire dataset, as it is small. For large datasets, you can store a smaller sample to use just for validation. Moreover, because this validation data is used only for tests, we store it in a folder called [`validation_data`](titanic/titanic/tests/validation_data) in the [`tests`](titanic/titanic/tests) folder. 
+
+ If more extensive validation tools are required, there are some useful testing tools for Python:
 
 - [Hypothesis](https://hypothesis.readthedocs.io) — A package to create unit tests which are simpler to write and more powerful when run, finding edge cases in your code you wouldn’t have thought to look for
 - [Engarde](http://engarde.readthedocs.io/) — A package for defensive data analysis
+- [TDDA](http://tdda.readthedocs.io/en/latest/) — A package for test-driven data analysis
 - [Faker](https://faker.readthedocs.io) — A package to generate fake data
 - [Feature Forge](https://feature-forge.readthedocs.io) — A package that provides some help with the boilerplate of defining features and help you testing them
 
@@ -118,48 +125,9 @@ Finally, you can run the tests.
 python -m pytest
 ```
 
-## Data Pipeline
+## Commit and merge
 
-Next, we implement the work into a pipeline in the [Titanic package](titanic).
-
-[**➠   Go to the data pipeline module: *pipelines.py***](titanic/titanic/pipelines.py)
-
-Moreover, it is useful to implement a command line tool to run the pipeline. For this, we use the [Click](http://click.pocoo.org/) library instead of the standard [argparse](https://docs.python.org/3/library/argparse.html), as it is more [user-friendly](http://click.pocoo.org/5/why/).
-
-```shell
-pip install click==6.7
-pip freeze | grep -v titanic > requirements.txt
-```
-
-We also add the following lines to [titanic/setup.py](titanic/setup.py).
-
-```python
-...
-setup(
-    ...
-    install_requires=[
-        ...
-        'click>=6.7'
-    ],
-	...
-    entry_points='''
-        [console_scripts]
-        titanic_analysis=titanic.command_line:titanic_analysis
-    '''
-)
-```
-
-The command line tool is implemented in the following file,
-
-[**➠   Go to the command line module: *command_line.py***](titanic/titanic/command_line.py)
-
-and is run using the following command.
-
-```shell
-titanic_analysis --filename data/titanic.csv
-```
-
-Finally, we commit the changes and push the content to the GitHub repository.
+Finally, we commit the changes, merge the `refactor_explore_survival` branch with the `master` branch and push the content to the GitHub repository.
 
 ```shell
 git commit . -m "Refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
@@ -168,8 +136,6 @@ git merge refactor_explore_survival
 git push
 ```
 
-In this part of the tutorial we saw how to refactor an exploratory analysis and create a data pipeline interfaced through the command line.
+In this part of the tutorial we saw how to refactor an exploratory analysis into the `titanic` package. In the next part, we will discuss how to iterate exploration and refactoring to obtain a product.
 
-For your next project, you can use the Cookiecutter template based on this tutorial.
-
-[**➠   Go to the Project Template**](../../template)
+[**➠   Go to the next part: *D - Iterate to Product***](../d-iterate_to_product)

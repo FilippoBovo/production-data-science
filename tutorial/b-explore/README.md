@@ -2,7 +2,11 @@
 
 In the second part of this tutorial, we explore the Titanic data and build a model to predict if a passenger will survive.
 
+
+
 ![explore](../../resources/explore.png)
+
+
 
 Before starting the tutorial, remember to re-activate the Python virtual environment, if it is not already active.
 

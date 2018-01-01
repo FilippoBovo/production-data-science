@@ -36,6 +36,25 @@ def data_preparation(df, test_size, random_state=None):
     return X_train, X_test, y_train, y_test
 
 
+class MajorityVoteClassifier:
+    """Majority Vote Classifier
+
+    This class contains the `fit` and `predict` methods that are compatible
+    with the SciKit-Learn model classes.
+    """
+    def __init__(self):
+        self.majority_vote = None
+
+    def fit(self, X, y):
+        self.majority_vote = round(y.mean())
+        return self
+
+    def predict(self, X):
+        if self.majority_vote is None:
+            raise ValueError("The majority vote classifier has to be trained before making predictions")
+        return [self.majority_vote] * len(X)
+
+
 def run_majority_vote(X_train, X_test, y_train, y_test):
     """Use the majority vote to predict survival.
 
@@ -50,15 +69,15 @@ def run_majority_vote(X_train, X_test, y_train, y_test):
 
     logging.info("Running the majority vote classifier")
 
-    majority_vote = round(y_train.mean())
-
-    y_test_predictions = [majority_vote] * len(y_test)
+    majority_vote_classifier = MajorityVoteClassifier()
+    majority_vote_classifier.fit(X_train, y_train)
+    y_test_predictions = majority_vote_classifier.predict(X_test)
 
     accuracy = accuracy_score(y_true=y_test, y_pred=y_test_predictions)
 
     logging.info('The prediction accuracy with the majority vote classifier is {:.1f}%'.format(accuracy * 100))
 
-    return
+    return majority_vote_classifier
 
 
 def run_logistic_regression(X_train, X_test, y_train, y_test):
@@ -98,4 +117,4 @@ def run_logistic_regression(X_train, X_test, y_train, y_test):
 
     logging.info('The prediction accuracy with the ridge logistic regression classifier is {:.1f}%'.format(accuracy * 100))
 
-    return
+    return gs

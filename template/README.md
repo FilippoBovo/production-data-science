@@ -10,7 +10,7 @@ Install Coockiecutter if you do not have it already.
 pip install cookiecutter
 ```
 
-Clone this repository to the system temporary folder.
+Clone this repository to the system temporary folder, `$TMPDIR`.
 
 ```shell
 git clone git@github.com:Satalia/production-data-science.git $TMPDIR/production_data_science_template

@@ -1,0 +1,16 @@
+version: 1
+
+formatters:
+    simple:
+        format: "%(message)s"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: INFO
+        formatter: simple
+        stream: ext://sys.stdout
+
+root:
+    level: INFO
+    handlers: [console]
