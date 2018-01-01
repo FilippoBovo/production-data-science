@@ -12,11 +12,11 @@ This guide attempts to merge the gap that data scientists may have in software d
 
 At the core of the data science workflow presented in this guide is an adaptation of the feature development and refactoring cycle which is typical of software development. In the software development cycle, new features are added to the code base and the code base is refactored to be simpler, more intuitive and more stable. In data science, data exploration takes the role of feature development. With this analogy, the data science cycle loops through data exploration and refactoring.
 
-
+  
 
 ![exploration_refactoring_cycle](resources/explore-refactor_loop.png)
 
-
+  
 
 In the exploratory phase, the code base is expanded through data analysis, feature engineering and modelling. In the refactoring phase, the most useful results and tools from the exploratory phase are translated into modules and packages.
 
