@@ -95,18 +95,18 @@ To make it easy for other people and your future-self to navigate exploratory an
 As an example, if this project were to expand, the structure of the folder `exploration` may look like this:
 
 ```
-exploration/
-	predict_survival_using_logistic_regression_with_sex_age_title/
-		analysis.ipynb                                              # Jupyter Notebook
-	relation_between_age_and_survival/                              # Spyder (IDE)
-		.spyproject/
-			<spyder_stuff>
-		analysis.py
-		README.md
-	logistic_regression_vs_svm/                                     # Normal text editor
-		analysis.py
-		plots/
-		README.md
+📁 exploration/
+📁     predict_survival_using_logistic_regression_with_sex_age_title/
+📄         analysis.ipynb                                            # Jupyter Notebook
+📁     relation_between_age_and_survival/                            # Spyder (IDE)
+📁         .spyproject/
+📄             <spyder_stuff>
+📄         analysis.py
+📄         README.md
+📁     logistic_regression_vs_svm/                                   # Normal text editor
+📄         analysis.py
+📁         plots/
+📄         README.md
 ```
 
 In this part of the tutorial we saw a simple data analysis using the Jupyter Notebook and suggested some rules to ease collaborations and develop clear exploratory analyses. In the next part of the tutorial we will refactor the analysis of this part into the [Titanic package](titanic) that we prepared in the [previous section](../a-setup).

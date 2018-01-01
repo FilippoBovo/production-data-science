@@ -22,17 +22,15 @@ The environment should be activated by default after creation. However, if it is
 
 ## Project Structure
 
-We start by creating a [minimal structure for a Python package](http://python-packaging.readthedocs.io/en/latest/minimal.html), which will be at the core of automation and productionisation. Go into the folder where you would like to store the project and create the following structure of folders and files.
+We start by creating a [minimal structure for a Python package](http://python-packaging.readthedocs.io/en/latest/minimal.html), which will be at the core of automation and productionisation. Go into the folder where you would like to store the project and create the following structure of folders 📁 and files 📄.
 
 ```
-titanic/
-	titanic/
-		__init__.py
-	setup.py
-	README.md
+📁 titanic/
+📁     titanic/
+📄         __init__.py
+📄     setup.py
+📄     README.md
 ```
-
-Names ending with `/` are folders and the others are text files.
 
 > If you are not familiar with the unix terminal, use `pwd` to check which folder you are currently into, `ls` to list folders and files in the current folder, `cd path-to-folder` to move folder, `mkdir folder-name` to create a new folder and `touch file-name` to create a new file.
 
@@ -80,15 +78,15 @@ and add information as the project progresses.
 Putting all together, we get the following project structure.
 
 ```
-titanic/
-	titanic/
-		__init__.py
-	setup.py
-	README.md
-data/
-	titanic.csv
-exploration/
-README.md
+📁 titanic/
+📁     titanic/
+📄         __init__.py
+📄     setup.py
+📄     README.md
+📁 data/
+📄     titanic.csv
+📁 exploration/
+📄 README.md
 ```
 
 > Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to draw a diagram with a starting point, which for data science is typically data, and an end point, in the form of a goal.
@@ -181,19 +179,19 @@ Next, we set up a new repository, call it `titanic`, and push the content we cre
 Finally, the project structure that we have created can be explored at the [top of the page](#) and is displayed in the following box.
 
 ```
-.gitignore
-titanic/
-	titanic/
-		__init__.py
-		log.py
-		logging.yaml
-	setup.py
-	README.md
-data/
-	titanic.csv
-exploration/
-	logging.yaml
-README.md
+📄 .gitignore
+📁 titanic/
+📁     titanic/
+📄         __init__.py
+📄         log.py
+📄         logging.yaml
+📄     setup.py
+📄     README.md
+📁 data/
+📄     titanic.csv
+📁 exploration/
+📄     logging.yaml
+📄 README.md
 ```
 ## Collaboration
 
