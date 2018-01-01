@@ -10,15 +10,15 @@ In the fourth part of this worked example, we discuss the iteration of the explo
 
 ## Explore-Refactor Cycle
 
-So far, we have seen a single exploration and a single refactoring steps. The idea of the workflow presented in this tutorial is to cycle through small exploration and refactoring steps, instead of doing a single big exploration and refactoring just at the end.
+So far, we have seen a single exploration and a single refactoring steps. The idea of the workflow presented in this tutorial is to cycle through small exploration and refactoring steps, instead of doing a single big exploration, refactoring just at the end.
 
-Cycling through a cycle of small exploration and refactoring steps has several advantages over a single exploration and a single refactoring.
+Cycling through small exploration and refactoring steps has several advantages over a single exploration with final refactoring.
 
-- Cycling through refactoring and exploration keeps the code modular. In turn, **the codebase becomes smaller, easier to reuse and fix**. In general, [viewing code as a liability](https://youtu.be/YyhfK-aBo-Y?t=17m42s), less code means less liability in a product.
+- Cycling through refactoring and exploration keeps the code modular. In turn, **the codebase becomes smaller, and easier to reuse and fix**. In general, [viewing code as a liability](https://youtu.be/YyhfK-aBo-Y?t=17m42s), less code means less liability.
 - Modular code allows to build tests that make the **codebase robust against change**. In addition, by writing tests, it is easier to exploit the weaknesses of a system.
-- By calling functions and methods from the refactor modular code, analyses contain less code. By containing less code, **analyses focus more on proving a point** through argumentations, which is what an analysis is supposed to do. In addition, basing an analysis on a modular codebase, prevents the dangerous tendency of copying and pasting code snippets from older analyses.
+- By calling functions and methods from the refactored modular code, analyses contain less code. By containing less code, **analyses focus more on proving a point** through argumentations, which is what an analysis is supposed to do. In addition, basing an analysis on a modular codebase, prevents the dangerous tendency of copying and pasting code snippets from older analyses.
 - By taking advantage of the modular codebase, **it is faster to carry out new analyses**. For example, we may use just a few lines of code to call functions or methods from the codebase to clean our data or make customised plots. In addition, using refactored and tested code **reduces the risk of reaching a wrong conclusion in an analysis**.
-- Modularised code is faster and easier to simplify and document. Simple and documented code, together with focussed analyses, lead to a work that is easier to read, understand and change, therefore, **boosting collaboration**.
+- Modular code is faster and easier to simplify and document. Simple and documented code, together with focussed analyses, lead to a work that is easier to read, understand and change, therefore, **boosting collaboration**.
 
 
 - By following the refactor-explore cycle, **the code is kept in a state that is quick to productionise**.
@@ -83,6 +83,8 @@ git push
 ```
 
 In this part of the tutorial we saw how to iterate the explore-refactor cycle and how to create a data pipeline interfaced accessible through the command line.
+
+Congratulations for completing the tutorial! :tada:
 
 To set up your next project, you can use the Cookiecutter template at the following link.
 

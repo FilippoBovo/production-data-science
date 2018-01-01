@@ -40,7 +40,7 @@ Here is a description of the structure above:
 
 - [`titanic/titanic/__init__.py`](titanic/titanic/__init__.py) is an empty file to [initialise](https://docs.python.org/3/tutorial/modules.html#packages) the titanic package.
 
-  > Note that `__init__.py` files do not have to empty and can be used, for example, to initialise code for the package.
+  > Note that `__init__.py` files do not have to be empty and can be used, for example, to initialise code for the package.
 
 - [`titanic/setup.py`](titanic/setup.py) is the [setup script](https://docs.python.org/3/distutils/setupscript.html) that is run when installing the module. You may want to change the `author` and `author_email` fields [in the file](titanic/setup.py) to match your details.
 
@@ -49,7 +49,9 @@ Here is a description of the structure above:
   pip install pypandoc==1.4
   ```
   > Note that when installing packages with pip, we specify the package version in order to make sure that the we can run the code without issues. When you will create your own setup for different projects, it is better to use updated packages by omitting the version number.
-
+  > ```shell
+  > pip install pypandoc
+  > ```
 
 Having created the above files, we can install the local `titanic/` package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs),
 
@@ -59,7 +61,7 @@ pip install -e titanic/
 
 The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local `titanic/` folder so that we can develop the package while it is installed.
 
-In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_. For these, we create the folders `exploration/` and `data/` outside of the package, which should be left outside of the package, as the package should only contain elements aimed at production. For the data, we download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in `data/`.
+In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_. For these, we create the folders `exploration/` and `data/`, which should be left outside of the package, as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in `data/`.
 
 > Note that in this case the data, being small, is store directly in our project folder. If the data is big or is confidential, it should be stored in different places, for example in a secure cloud location.
 
@@ -73,7 +75,7 @@ This projects aims at analysing Kaggle's Titanic dataset and build a predictive 
 
 and add information as the project progresses.
 
-> It is good to create `README.md`  files in the [`data`](data),  [`exploration`](exploration) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in  `README.md` so that other people will be consistent with the choice.
+> It is good to create `README.md`  files in the [`data`](data) and  [`exploration`](exploration) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in  `README.md` so that other people will be consistent with the choice.
 
 Putting all together, we get the following project structure.
 
@@ -89,7 +91,7 @@ Putting all together, we get the following project structure.
 📄 README.md
 ```
 
-> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to draw a diagram with a starting point, which for data science is typically data, and an end point, in the form of a goal.
+> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to draw a diagram with a starting point, which for data science is typically data, and an end point in the form of a goal.
 >
 > ```
 >  ———————           ———————           —————— 
@@ -113,7 +115,7 @@ Logging is an important task for software development that should handle the mes
 
 In our case, we have two different places where we want to display messages: the terminal, when running command line applications, and interactive editors, like the [Jupyter notebook](http://jupyter.org/) or [Spyder](https://pythonhosted.org/spyder/), when doing explorative analysis. In the terminal, it is useful to display the time, the Python module where the message comes from and the message level (debug, info, warning, ...). In interactive editors, most of the time it is enough to display just the message.
 
-To handle these two different ways of displaying data, we create two configuration files,  [`titanic/titanic/logging.yml`](titanic/titanic/logging.yaml) for messages to the terminal and [`exploration/logging.yml`](exploration/logging.yaml) for messages in Jupyter notebooks. These configuration files use the [YAML format](https://en.wikipedia.org/wiki/YAML), as it is more popular and flexible than the [standard Python configuration files](https://docs.python.org/3/library/configparser.html). For this, we need to install the [PyYAML](https://github.com/yaml/pyyaml) package.
+To handle these two different ways of displaying data, we create two configuration files,  [`titanic/titanic/logging.yml`](titanic/titanic/logging.yaml) for messages to the terminal and [`exploration/logging.yml`](exploration/logging.yaml) for messages, for example, in Jupyter notebooks. These configuration files use the [YAML format](https://en.wikipedia.org/wiki/YAML), as it is more popular and flexible than the [standard Python configuration files](https://docs.python.org/3/library/configparser.html). For this, we need to install the [PyYAML](https://github.com/yaml/pyyaml) package.
 
 ```python
 pip install pyyaml==3.12
@@ -158,7 +160,7 @@ Since we want to add to this repository only the necessary files, we create a [l
 curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
 ```
 
-Note that operating system specific files should be [omitted at global level](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) using the command below matching your operating system.
+Note that operating system specific files should be [omitted at global level](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) using the command below, matching your operating system.
 ```shell
 # Unix
 curl -o $HOME/.gitignore_global https://github.com/github/gitignore/blob/master/Global/Linux.gitignore

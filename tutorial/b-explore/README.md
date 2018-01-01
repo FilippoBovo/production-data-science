@@ -61,7 +61,7 @@ pip install watermark==1.5.0 pandas==0.20.3 scikit-learn==0.19.0 scipy==0.19.1 m
 pip freeze | grep -v titanic > requirements.txt
 ```
 
-Now we are ready to move to the notebook by clicking on the following link.
+Now, click on the following link to go to the notebook.
 
 [**➠   Go to the analysis in the Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb)
 
@@ -83,27 +83,27 @@ The exploratory folder is the place where to store exploratory analyses.
 
 To make it easy for other people and your future-self to navigate exploratory analyses we suggest the following rules:
 
-- ***Single Result*** — Each exploratory project should prove a single result.
-- ***Dedicated Folder*** — Each exploratory project should be placed in a dedicated folder. Even if you start with a single file, use a dedicated folder as more files are likely to be created later on. Moreover, in this way the structure of the exploratory folder is consistent.
-- ***Meaningful Name*** — Give the exploratory project a name that shows what is done inside, like `predict_survival_using_logistic_regression_with_sex_age_title` for the one just seen.
-- ***Exploration = Document*** — Treat the exploratory project as a document to explain the logic of the analysis. In a Jupyter Notebook this can be done using the Markdown feature. With other tools, it may be useful to write the explanation in code comments and in `README.md`, which will also be displayed automatically by GitHub.
-- ***Author Contact*** — Write the author name(s), GitHub account(s) and, if necessary, email(s). This ensures that if the content of a notebook is not clear, it is easy to reach someone who can clarify.
-- ***Achievement*** — State the (single) achievement at the beginning of the notebook or readme file. This allows people to know the result, without having to go through the whole notebook.
-- ***Introduction*** — Guide the reader with an introduction to the notebook, like the introduction to a chapter of a book. If you can, write the introduction in the form of a story.
-- ***Clear Code*** — Making sure that the code is clear by following good coding practices. Exploratory work is not an excuse for bad code. As long as it is work that has to be shared with other people or to be reviewed in the future, make it easy for the reader.
+- **Single Result** — Each exploratory project should prove a single result.
+- **Dedicated Folder** — Each exploratory project should be placed in a dedicated folder. Even if you start with a single file, use a dedicated folder as more files are likely to be created later on. Moreover, in this way the structure of the exploratory folder is consistent.
+- **Meaningful Name** — Give the exploratory project a name that shows what is done inside, like `predict_survival_using_logistic_regression_with_sex_age_title` for the one just seen.
+- **Exploration = Document** — Treat the exploratory project as a document to explain the logic of the analysis. In a Jupyter Notebook this can be done using the Markdown feature. With other tools, it may be useful to write the explanation in code comments and in a `README.md` file, which will also be displayed automatically by GitHub.
+- **Author Contact** — Write the author name(s), GitHub account(s) and, if necessary, email(s). This ensures that if the content of a notebook is not clear, it is easy to reach someone who can clarify.
+- **Achievement** — State the (single) achievement at the beginning of the notebook or readme file. This allows people to know the result, without having to go through the whole notebook.
+- **Introduction** — Guide the reader with an introduction to the notebook, like the introduction to a chapter of a book. If you can, write the introduction in the form of a story.
+- **Clear Code** — Making sure that the code is clear by following good coding practices. Exploratory work is not an excuse for bad code. As long as it is work that has to be shared with other people or to be reviewed in the future, make it easy for the reader.
 
 As an example, if this project were to expand, the structure of the folder `exploration` may look like this:
 
 ```
 📁 exploration/
-📁     predict_survival_using_logistic_regression_with_sex_age_title/
-📄         analysis.ipynb                                            # Jupyter Notebook
-📁     relation_between_age_and_survival/                            # Spyder (IDE)
+📁     predict_survival_using_logistic_regression_with_sex_age_title/    # Jupyter Notebook
+📄         analysis.ipynb
+📁     relation_between_age_and_survival/                                # Spyder (IDE)
 📁         .spyproject/
 📄             <spyder_stuff>
 📄         analysis.py
 📄         README.md
-📁     logistic_regression_vs_svm/                                   # Normal text editor
+📁     logistic_regression_vs_svm/                                       # Normal text editor
 📄         analysis.py
 📁         plots/
 📄         README.md

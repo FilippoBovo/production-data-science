@@ -1,6 +1,6 @@
 # C - Refactor
 
-In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in [part A - Setup](../a-setup).
+In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we initialised in part [A - Setup](../a-setup).
 
 
 
@@ -16,7 +16,7 @@ Since the main purpose of an exploratory analysis is to prove a point rather tha
 
 However, with this criterion, we may as well increase the number of words, just to decrease the code to text ratio. This leads to longer documents that are both text and code heavy and, in turn, harder to read. A better solution is to **simplify both code and text, while keeping the code to word ratio reasonably low**.
 
-> I had the idea of code to text ratio from the data-ink ratio introduced by Edward Tufte in [*The Visual Display of Quantitative Information*](https://www.edwardtufte.com/tufte/books_vdqi) as a quantity to maximise to convey information through graphic in a more effective way.
+> I had the idea of code to text ratio from the data-ink ratio introduced by Edward Tufte in [*The Visual Display of Quantitative Information*](https://www.edwardtufte.com/tufte/books_vdqi) as a quantity to maximise to convey information through graphics in a more effective way.
 >
 > Related to code to text ratio is Donald Knuth's paradigm of [literate programming](https://en.wikipedia.org/wiki/Literate_programming) that encourages people to write for people, rather than computers.
 
@@ -36,7 +36,7 @@ Once an exploratory analysis has taken a certain direction, it is useful to refa
 
 [Refactoring for production](https://en.wikipedia.org/wiki/Code_refactoring) is a field covering many areas, such as readability, code complexity, code architecture and testing. To make the tutorial easy to follow, the code was already made readable and the Titanic toy-example problem kept the complexity and architecture simple. So, in this section we will focus just on testing.
 
-Since refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on standard testing methodologies. Moreover, data science broadly involve data preprocessing and predictive modelling, for which testing is done differently.
+Since refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on standard testing methodologies. Moreover, data science broadly involves data preprocessing and predictive modelling, for which testing is done differently.
 
 In data processing, the general idea to [write tests](https://pandas.pydata.org/pandas-docs/stable/contributing.html#test-driven-development-code-writing) is to,
 
@@ -108,12 +108,12 @@ To tell Python to use PyTest for testing, create the configuration file [`titani
 test=pytest
 ```
 
-The tests for the functions in the [data.py](titanic/titanic/data.py) and [models.py](titanic/titanic/models.py) modules are in the following files:
+To see the tests for the functions in the [data.py](titanic/titanic/data.py) and [models.py](titanic/titanic/models.py) modules, click on the following links.
 
 - [**➠   Tests for the data manipulation module: *test_data.py***](titanic/titanic/tests/test_data.py)
 - [**➠   Tests for the predictive modelling module: *test_models.py***](titanic/titanic/tests/test_models.py)
 
-Finally, you can run the tests.
+To run the tests, you can use the following command.
 
 ```shell
 python -m pytest

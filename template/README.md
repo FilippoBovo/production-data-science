@@ -2,7 +2,7 @@
 
 We can use [Cookiecutter](http://cookiecutter.readthedocs.io/en/latest/readme.html), to initialise a project using a template with the same structure seen in the tutorial.
 
-We start by [creating a repository on GitHub](https://help.github.com/articles/creating-a-new-repository/) *without* choosing any additional option, like initialising a readme file. In the following, *\<project_name\>* refers to the GitHub repository name.
+We start by [creating a repository on GitHub](https://help.github.com/articles/creating-a-new-repository/) *without* initialising a readme file. In the following, *\<project_name\>* refers to the GitHub repository name.
 
 Install Coockiecutter if you do not have it already.
 
