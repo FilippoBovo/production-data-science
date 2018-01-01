@@ -75,7 +75,8 @@ titanic_analysis --filename data/titanic.csv
 Finally, we commit the changes and push the content to the GitHub repository.
 
 ```shell
-git commit . -m "Add data pipeline and command line tool to launch it"
+git add .
+git commit -m "Add data pipeline and command line tool to launch it"
 git checkout master 
 git merge data_pipeline
 git push

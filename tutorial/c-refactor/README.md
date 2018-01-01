@@ -70,13 +70,7 @@ We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blo
 > - Comment your code
 > - Commenting too much may mean that you should improve your code instead
 
-First, we create a new branch called `refactor_explore_survival`.
-
-```shell
-git checkout -b refactor_explore_survival
-```
-
-Then, click on the following links to see the refactoring.
+To see the refactoring, click on the following links.
 
 - [**➠   Refactored Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) (See orange text for refactoring.)
 - [**➠   Data manipulation module: *data.py***](titanic/titanic/data.py)
@@ -127,10 +121,11 @@ python -m pytest
 
 ## Commit and merge
 
-Finally, we commit the changes, merge the `refactor_explore_survival` branch with the `master` branch and push the content to the GitHub repository.
+Finally, we commit the changes, merge the `predict_passenger_survival` branch with the `master` branch and push the content to the GitHub repository.
 
 ```shell
-git commit . -m "Refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
+git add .
+git commit -m "Refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
 git checkout master 
 git merge refactor_explore_survival
 git push

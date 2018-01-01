@@ -18,13 +18,11 @@ workon titanic
 
 In software development, [branching](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is used to isolate the development of new features so that people do not interfere with each other when working on different features. Branching can be easily extended to data science, where instead of developing new features, we explore different aspects of the data.
 
-We start by creating a new branch called `explore_survival`.
+We start by creating a new branch called `predict_passenger_survival`.
 
 ```shell
-git checkout -b explore_survival
+git checkout -b predict_passenger_survival
 ```
-
-It is useful to name the branch by starting with `explore_` when the branch is used for exploration, so that we do not confuse them with branches done for refactoring.
 
 > It is important to use explicit names for branching, so that other people can easily understand the purpose of the branch.
 
@@ -67,12 +65,11 @@ Now we are ready to move to the notebook by clicking on the following link.
 
 [**➠   Go to the analysis in the Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb)
 
-Finally, we commit our changes to the branch and, since we concluded the work on this branch, we merge it with the master branch.
+Finally, we commit our changes to the branch and push them to GitHub.
 
 ```shell
-git commit . -m "Predict passenger survival using ridge logistic regression"
-git checkout master 
-git merge explore_survival
+git add .
+git commit -m "Predict passenger survival using ridge logistic regression"
 git push
 ```
 
