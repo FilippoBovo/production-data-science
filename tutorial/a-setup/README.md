@@ -159,13 +159,12 @@ curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Pyt
 Note that operating system specific files should be [omitted at global level](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) using the command below, matching your operating system.
 ```shell
 # Unix
-curl -o $HOME/.gitignore_global https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
-
+curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/Linux.gitignore
 # Mac
-curl -o $HOME/.gitignore_global https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore
 
 # Windows
-curl -o $HOME/.gitignore_global https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/Windows.gitignore
 ```
 
 Next, we set up a new repository, call it `titanic`, and push the content we created into it by following the official GitHub guide:
