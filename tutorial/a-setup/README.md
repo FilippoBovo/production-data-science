@@ -160,6 +160,7 @@ Note that operating system specific files should be [omitted at global level](ht
 ```shell
 # Unix
 curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/Linux.gitignore
+
 # Mac
 curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore
 
