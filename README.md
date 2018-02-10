@@ -28,7 +28,9 @@ This tutorial assumes that you are familiar with Python 3, and relies on the ass
 
 The links in this tutorial should be used only when the symbol [**➠**](#) appears. All other links point to further resources and are optional.
 
-> Finally, quoted text is devoted to suggestions and observations.
+> Quoted text is devoted to suggestions and observations.
+
+Finally, here is a five-minute read about the [story and motivation of the data science worflow](http://datadrivenjournalism.net/resources/production_data_science).
 
 Let's start the tutorial!
 
