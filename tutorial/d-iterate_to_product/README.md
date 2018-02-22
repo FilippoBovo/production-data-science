@@ -78,7 +78,17 @@ git merge data_pipeline
 git push
 ```
 
-In this part of the tutorial we saw how to iterate the explore-refactor cycle and how to create a data pipeline interfaced accessible through the command line.
+## Distributing the package
+
+Once a product is ready, most people just use the Python package without contributing to it. In this case, the package can be conveniently installed in a single line of code.
+
+```shell
+pip install -e 'git+https://github.com/<github_account>/titanic.git#egg=titanic&subdirectory=titanic'
+```
+
+> For a private repository accessible only through SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
+
+In this part of the tutorial we saw how to iterate the explore-refactor cycle, how to create a data pipeline interface accessible through the command line, and how to distribute the final product.
 
 Congratulations for completing the tutorial! :tada:
 
