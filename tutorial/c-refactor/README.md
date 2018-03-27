@@ -41,7 +41,7 @@ In data processing, the general idea to [write tests](https://pandas.pydata.org/
 3. Compare the processed input dataset and expected output dataset
 
 
-In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow for the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. This kind of testing is analogous to the [validation testing](https://en.wikipedia.org/wiki/Software_verification_and_validation) in software development, where tests check that systems meet some requirements. In our example, we may require that the logistic regression model performs _at least_ as well as the majority vote classifier. Note that to run this validation test we need to store some data. For this example, we choose the entire dataset, as it is small. For large datasets, you can store a smaller sample to use just for validation. Moreover, because this validation data is used only for tests, we store it in a folder called [`validation_data`](titanic/titanic/tests/validation_data) in the [`tests`](titanic/titanic/tests) folder. 
+In predictive modelling, the situation is similar if we take the model predictions as output and, if random processes are involved, we fix the random seed. However, if we would like to improve the model along the way, we must allow for the output to change, meaning that, instead of testing the exact output, we *test properties* of the output. This kind of testing is analogous to the [validation testing](https://en.wikipedia.org/wiki/Software_verification_and_validation) in software development, where tests check that systems meet some requirements. In our example, we may require that the logistic regression model performs _at least_ as well as the majority vote classifier. Note that to run this validation test we need to store some data. For this example, we choose the entire dataset, as it is small. For large datasets, you can store a smaller sample to use just for validation. Moreover, because this validation data is used only for tests, we store it in a folder called [`validation_data`](tests/validation_data) in the [`tests/`](tests/) folder. 
 
  If more extensive validation tools are required, there are some useful testing tools for Python:
 
@@ -53,7 +53,7 @@ In predictive modelling, the situation is similar if we take the model predictio
 
 ## Refactoring the Notebook
 
-In this section, we refactor some of the [notebook](exploration/cleaning_engineering_logistic_regression.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the modules [`titanic/titanic/data.py`](titanic/titanic/data.py) and [`titanic/titanic/models.py`](titanic/titanic/models.py) where we put respectively functions for data processing and predictive modelling. We use this modular approach motivated by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), which states that each bit of code should be focused on a single task with a limited scope. Some reasons behind this principle are that modular files are easier to maintain, discourage the use of global variables, and encourage the use of  variables with narrow scopes and input and output parameters.
+In this section, we refactor some of the [notebook](exploration/cleaning_engineering_logistic_regression.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the modules [`titanic/data.py`](titanic/data.py) and [`titanic/models.py`](titanic/models.py) where we put respectively functions for data processing and predictive modelling. We use this modular approach motivated by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), which states that each bit of code should be focused on a single task with a limited scope. Some reasons behind this principle are that modular files are easier to maintain, discourage the use of global variables, and encourage the use of  variables with narrow scopes and input and output parameters.
 
 We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt), as it is more readable that the standard [Python reStructuredText format](https://www.python.org/dev/peps/pep-0287/).
 
@@ -69,19 +69,19 @@ We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blo
 To see the refactoring, click on the following links.
 
 - [**➠   Refactored Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) (See orange text for refactoring.)
-- [**➠   Data manipulation module: *data.py***](titanic/titanic/data.py)
-- [**➠   Predictive models module: *models.py***](titanic/titanic/models.py)
+- [**➠   Data manipulation module: *data.py***](titanic/data.py)
+- [**➠   Predictive models module: *models.py***](titanic/models.py)
 
 ## Unit Tests
 
-For these functions, we also create unit tests in [`titanic/tests/`](titanic/tests/) by using [PyTest](https://docs.pytest.org), as this library is more user-friendly than the standard [unittest](https://docs.python.org/3/library/unittest.html) library.
+For these functions, we also create unit tests in [`tests/`](tests/) by using [PyTest](https://docs.pytest.org), as this library is more user-friendly than the standard [unittest](https://docs.python.org/3/library/unittest.html) library.
 
 ```shell
-mkdir titanic/tests/
+mkdir tests/
 pip install pytest==3.2.3 pytest-runner==2.12.1
 ```
 
-Add the following content to [`titanic/setup.py`](titanic/setup.py):
+Add the following content to [`setup.py`](setup.py):
 
 ```python
 ...
@@ -97,17 +97,17 @@ setup(
 )
 ```
 
-To tell Python to use PyTest for testing, create the configuration file [`titanic/setup.cfg`](titanic/setup.cfg) with the following content.
+To tell Python to use PyTest for testing, create the configuration file [`setup.cfg`](setup.cfg) with the following content.
 
 ```ini
 [aliases]
 test=pytest
 ```
 
-To see the tests for the functions in the [data.py](titanic/titanic/data.py) and [models.py](titanic/titanic/models.py) modules, click on the following links.
+To see the tests for the functions in the [data.py](titanic/data.py) and [models.py](titanic/models.py) modules, click on the following links.
 
-- [**➠   Tests for the data manipulation module: *test_data.py***](titanic/tests/test_data.py)
-- [**➠   Tests for the predictive modelling module: *test_models.py***](titanic/tests/test_models.py)
+- [**➠   Tests for the data manipulation module: *test_data.py***](tests/test_data.py)
+- [**➠   Tests for the predictive modelling module: *test_models.py***](tests/test_models.py)
 
 To run the tests, you can use the following command.
 
@@ -127,6 +127,6 @@ git merge refactor_explore_survival
 git push
 ```
 
-In this part of the tutorial we saw how to refactor an exploratory analysis into the `titanic` package. In the next part, we will discuss how to iterate exploration and refactoring to obtain a product.
+In this part of the tutorial we saw how to refactor an exploratory analysis into the [`titanic`](titanic) package. In the next part, we will discuss how to iterate exploration and refactoring to obtain a product.
 
 [**➠   Go to the next part: *D - Iterate to Product***](../d-iterate_to_product)

@@ -31,7 +31,7 @@ git checkout -b data_pipeline
 
 Then, we write the code of the pipeline into the module `pipelines.py` inside the [Titanic package](titanic).
 
-[**➠   Go to the data pipeline module: *pipelines.py***](titanic/titanic/pipelines.py)
+[**➠   Go to the data pipeline module: *pipelines.py***](titanic/pipelines.py)
 
 To implement the command line tool to run the pipeline, we use the [Click](http://click.pocoo.org/) library instead of the standard [argparse](https://docs.python.org/3/library/argparse.html), as Click is more [user-friendly](http://click.pocoo.org/5/why/).
 
@@ -40,7 +40,7 @@ pip install click==6.7
 pip freeze | grep -v titanic > requirements.txt
 ```
 
-We also add the following lines to [titanic/setup.py](titanic/setup.py).
+We also add the following lines to [`setup.py`](setup.py).
 
 ```python
 ...
@@ -60,7 +60,7 @@ setup(
 
 The command line tool is implemented in the following file,
 
-[**➠   Go to the command line module: *command_line.py***](titanic/titanic/command_line.py)
+[**➠   Go to the command line module: *command_line.py***](titanic/command_line.py)
 
 and is run from the terminal using the following command — Note that the virtual environment `titanic` has to be active to run this command.
 
