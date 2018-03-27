@@ -74,10 +74,10 @@ To see the refactoring, click on the following links.
 
 ## Unit Tests
 
-For these functions, we also create unit tests in [`titanic/titanic/tests/`](titanic/titanic/tests/) by using [PyTest](https://docs.pytest.org), as this library is more user-friendly than the standard [unittest](https://docs.python.org/3/library/unittest.html) library.
+For these functions, we also create unit tests in [`titanic/tests/`](titanic/tests/) by using [PyTest](https://docs.pytest.org), as this library is more user-friendly than the standard [unittest](https://docs.python.org/3/library/unittest.html) library.
 
 ```shell
-mkdir titanic/titanic/tests/
+mkdir titanic/tests/
 pip install pytest==3.2.3 pytest-runner==2.12.1
 ```
 
@@ -106,8 +106,8 @@ test=pytest
 
 To see the tests for the functions in the [data.py](titanic/titanic/data.py) and [models.py](titanic/titanic/models.py) modules, click on the following links.
 
-- [**➠   Tests for the data manipulation module: *test_data.py***](titanic/titanic/tests/test_data.py)
-- [**➠   Tests for the predictive modelling module: *test_models.py***](titanic/titanic/tests/test_models.py)
+- [**➠   Tests for the data manipulation module: *test_data.py***](titanic/tests/test_data.py)
+- [**➠   Tests for the predictive modelling module: *test_models.py***](titanic/tests/test_models.py)
 
 To run the tests, you can use the following command.
 
