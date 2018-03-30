@@ -120,7 +120,7 @@ Since the Python logging module does not natively support logging configuration 
 
 ## Reproducibility
 
-In order for other people to be able to reproduce the same environment that we are using, we create the file [`requirements.txt`](titanic/requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
+In order for other people to be able to reproduce the same environment that we are using, we create the file [`requirements.txt`](requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
 
 ```shell
 pip freeze | grep -v titanic > requirements.txt
