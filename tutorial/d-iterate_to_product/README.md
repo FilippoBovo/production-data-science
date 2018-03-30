@@ -65,7 +65,7 @@ The command line tool is implemented in the following file,
 and is run from the terminal using the following command — Note that the virtual environment `titanic` has to be active to run this command.
 
 ```shell
-titanic_analysis --filename data/titanic.csv
+titanic_analysis --filename exploration/data/titanic.csv
 ```
 
 Finally, we commit the changes and push the content to the GitHub repository.
@@ -83,10 +83,12 @@ git push
 Once a product is ready, most people just use the Python package without contributing to it. In this case, the package can be conveniently installed in a single line of code.
 
 ```shell
-pip install -e 'git+https://github.com/<github_account>/titanic.git#egg=titanic&subdirectory=titanic'
+pip install -e 'git+https://github.com/<github_account>/titanic_datascience.git#egg=titanic'
 ```
 
 > For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
+
+This commands installs only the package `titanic`, as specified in `setup.py`, and omits other files, like the [`exploration/`](exploration) folder or [`requirements.txt`](requirements.txt).
 
 In this part of the tutorial we saw how to iterate the explore-refactor cycle, how to create a data pipeline interface accessible through the command line, and how to distribute the product.
 
