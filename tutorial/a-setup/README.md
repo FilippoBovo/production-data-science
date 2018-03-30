@@ -66,7 +66,7 @@ pip install -e .
 
 The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local `titanic/` folder so that we can develop the package while it is installed. We use `.` to indicate the folder where [`setup.py`](setup.py) is.
 
-In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_. For these, we create the folders `exploration/` and `data/`, which should be left outside of the package, as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in `data/`.
+In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package, as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
 
 > Note that in this case the data, being small, is store directly in our project folder. If the data is big or is confidential, it should be stored in different places, for example in a secure cloud location.
 
@@ -75,9 +75,9 @@ In addition to the Python package structure just created for automation and prod
 Putting all together, we get the following project structure.
 
 ```
-📁 data/
-    📄 titanic.csv
 📁 exploration/
+    📁 data/
+        📄 titanic.csv
 📁 titanic/
     📄 __init__.py
 📄 README.md
@@ -174,9 +174,9 @@ Next, we set up a new repository, call it `titanic_datascience`, and push the co
 Finally, the project structure that we have created can be explored at the [top of the page](#) and is displayed in the following box.
 
 ```
-📁 data/
-    📄 titanic.csv
 📁 exploration/
+    📁 data/
+        📄 titanic.csv
     📄 logging.yaml
 📁 titanic/
     📄 __init__.py
