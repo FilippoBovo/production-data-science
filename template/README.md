@@ -35,7 +35,7 @@ pip freeze | grep -v <package_name> > requirements.txt
 git init
 git add .
 git commit -m "First commit"
-git remote add origin <remote_repository_url>
+git remote add origin <remote_repository_url>.git
 git push -u origin master
 ```
 
