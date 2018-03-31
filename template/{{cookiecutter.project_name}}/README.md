@@ -21,11 +21,13 @@ First, make sure that you have [virtualenvwrapper](https://virtualenvwrapper.rea
 
 ```shell
 mkvirtualenv {{cookiecutter.project_name}}
-git clone {{cookiecutter.project_url}}
+git clone {{cookiecutter.project_url}}.git
 cd {{cookiecutter.project_name}}
 pip install -r requirements.txt
 pip install -e .
 pip freeze | grep -v {{cookiecutter.package_name}} > requirements.txt
 ```
 
-Then, create or select a GitHub branch and have fun... :smiley:
+> For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
+
+Then, create or select a GitHub branch and have fun... 
