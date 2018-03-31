@@ -37,7 +37,7 @@ Here is a description of the structure above:
 
   > Note that `__init__.py` files do not have to be empty and can be used, for example, to initialise code for the package.
 
-- [***➠   `setup.py`***](setup.py) is the [setup script](https://docs.python.org/3/distutils/setupscript.html) that is run when installing the module. You may want to change the `author` and `author_email` fields in [`setup.py`](setup.py) to match your details.
+- [**➠**  `setup.py`](setup.py) is the [setup script](https://docs.python.org/3/distutils/setupscript.html) that is run when installing the module. You may want to change the `author` and `author_email` fields in [`setup.py`](setup.py) to match your details.
 
 - The Markdown file [`README.md`](README.md) should contain a description of the package. Moreover, the `readme()` function in [`setup.py`](setup.py) adds the content of [`README.md`](README.md) to the `long_description` parameter of the package in `setup()`, and requires the package [`pypandoc`](https://pypi.python.org/pypi/pypandoc) to be installed.
 
