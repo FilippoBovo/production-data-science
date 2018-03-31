@@ -20,7 +20,7 @@ setup(
         'Programming Language :: Python :: 3',
     ],
     # Substitute <github_account> with the name of your GitHub account
-    url='https://github.com/<github_account>/titanic',
+    url='https://github.com/<github_account>/titanic_datascience',
     author='Filippo Bovo',  # Substitute your name
     author_email='filippo@satalia.com',  # Substitute your email
     license='MIT',

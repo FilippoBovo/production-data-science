@@ -8,17 +8,17 @@ In the first part of the tutorial, we set up the project, so that we start with 
 
 ## Virtual Environment
 
-Python has a useful feature, called [virtual environment](https://docs.python.org/3/tutorial/venv.html), which allows to hold a collection of packages in an isolated Python environment. Since we want to keep the Python packages associated to this project separate from those associated to other projects, we create a virtual environment.  After making sure that Python 3 is installed in the system, we use [`virtualenvwrapper`](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) to initialise a virtual environment called `titanic`.
+Python has a useful feature, called [virtual environment](https://docs.python.org/3/tutorial/venv.html), which allows to hold a collection of packages in an isolated Python environment. Since we want to keep the Python packages associated to this project separate from those associated to other projects, we create a virtual environment.  After making sure that Python 3 is installed in the system, we use [`virtualenvwrapper`](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) to initialise a virtual environment called `titanic_datascience`.
 
 ```shell
-mkvirtualenv --python=python3 titanic
+mkvirtualenv --python=python3 titanic_datascience
 ```
 
-The environment should be activated by default after creation. However, if it is not active, you can do it with the command `workon titanic`. We can use the command `which python` to get the path of the Python executable to verify that we are in the correct environment.
+The environment should be activated by default after creation. However, if it is not active, you can do it with the command `workon titanic_datascience`. We can use the command `which python` to get the path of the Python executable to verify that we are in the correct environment.
 
 ## Project Structure
 
-We start by creating a [minimal structure for a Python package](http://python-packaging.readthedocs.io/en/latest/minimal.html), which will be at the core of automation and productionisation. Go into the folder where you would like to store the project and create the following structure of folders 📁 and files 📄.
+We start by creating a [minimal structure for a Python package](http://python-packaging.readthedocs.io/en/latest/minimal.html), which will be at the core of automation and productionisation. Go into the folder where you would like to store the project, which you may call `titanic_datascience` for coherency with the name of the virtual environment, and create the following structure of folders 📁 and files 📄.
 
 ```
 📁 titanic/
@@ -31,15 +31,16 @@ We start by creating a [minimal structure for a Python package](http://python-pa
 
 Here is a description of the structure above:
 
-- The two folders called `titanic/` have to have the same name of the package.
+- The folder called [`titanic/`](titanic) is dedicated to the Python package for production.
 
 - [`titanic/__init__.py`](titanic/__init__.py) is an empty file to [initialise](https://docs.python.org/3/tutorial/modules.html#packages) the titanic package.
 
   > Note that `__init__.py` files do not have to be empty and can be used, for example, to initialise code for the package.
 
-- [`setup.py`](setup.py) is the [setup script](https://docs.python.org/3/distutils/setupscript.html) that is run when installing the module. You may want to change the `author` and `author_email` fields in [`setup.py`](setup.py) to match your details.
+- [***➠   `setup.py`***](setup.py) is the [setup script](https://docs.python.org/3/distutils/setupscript.html) that is run when installing the module. You may want to change the `author` and `author_email` fields in [`setup.py`](setup.py) to match your details.
 
-- The Markdown file [`README.md`](README.md) should contain a description of the package. [`titanic/`](titanic/) is the folder for storing package modules. The `readme()` function in [`setup.py`](setup.py) adds the content of [`README.md`](README.md) to the long description of the package in `setup()` and requires the package `pypandoc` to be installed.
+- The Markdown file [`README.md`](README.md) should contain a description of the package. Moreover, the `readme()` function in [`setup.py`](setup.py) adds the content of [`README.md`](README.md) to the `long_description` parameter of the package in `setup()`, and requires the package [`pypandoc`](https://pypi.python.org/pypi/pypandoc) to be installed.
+
   ```shell
   pip install pypandoc==1.4
   ```
@@ -48,29 +49,29 @@ Here is a description of the structure above:
   > pip install pypandoc
   > ```
 
-  Since files called [`README.md`](README.md) are automatically displayed by GitHub as webpage descriptions, [`README.md`](README.md) has been used for the content that you are reading in this moment. Instead of this, you may start this file with,
+  Since files called [`README.md`](README.md) are automatically displayed by GitHub as webpage descriptions, [`README.md`](README.md) has been used for the content that you are reading in this moment. In your case, instead, you may start this file with,
 
   ```markdown
   # Analysis of the Titanic dataset
-  
+
   This projects aims at analysing Kaggle's Titanic dataset and build a predictive model for the Titanic data science challenge.
   ```
 
   and add information as the project progresses.
 
-Having created the above files, we can install the local `titanic/` package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs),
+Having created the above files, we can install the local [`titanic/`](titanic) package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs),
 
 ```shell
 pip install -e .
 ```
 
-The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local `titanic/` folder so that we can develop the package while it is installed. We use `.` to indicate the folder where [`setup.py`](setup.py) is.
+The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local [`titanic/`](titanic) folder so that we can develop the package while it is installed. We use `.` to indicate the folder where [`setup.py`](setup.py) is.
 
-In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package, as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
+In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package [`titanic/`](titanic), as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
 
 > Note that in this case the data, being small, is store directly in our project folder. If the data is big or is confidential, it should be stored in different places, for example in a secure cloud location.
 
-> It is good to create `README.md`  files in the [`data`](data) and  [`exploration`](exploration) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in  `README.md` so that other people will be consistent with the choice.
+> It is good to create `README.md`  files in the [`exploration/`](exploration) and [`exploration/data/`](exploration/data) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in  `README.md` so that other people will be consistent with the choice.
 
 Putting all together, we get the following project structure.
 
@@ -126,7 +127,7 @@ In order for other people to be able to reproduce the same environment that we a
 pip freeze | grep -v titanic > requirements.txt
 ```
 
-The `grep -v titanic` command omits the local package `titanic` to avoid errors when installing packages from the requirement file, as we will see in section [Collaboration](#collaboration).
+The `grep -v titanic` command omits the local package [`titanic`](titanic) to avoid errors when installing packages from the requirement file, as we will see in section [Collaboration](#collaboration).
 
 We also add the packages we installed as [minimal package requirements](https://packaging.python.org/discussions/install-requires-vs-requirements/) to [`setup.py`](setup.py).
 
@@ -147,7 +148,7 @@ We will explain how to use these additions to reproduce the same environment in 
 
 To allow other people access to the work, we share it on [GitHub](https://github.com/), using the [Git](https://git-scm.com/) command line tools.
 
-Since we want to add to this repository only the necessary files, we create a [list of files to omit](https://git-scm.com/docs/gitignore) by storing it in a [`.gitignore`](.gitignore) file. The files to omit, are, for example, files that are created in the project folder when we installed the `titanic` package. A list of such files for Python has already been compiled by other people, so that we can simply copy it in our project folder.
+Since we want to add to this repository only the necessary files, we create a [list of files to omit](https://git-scm.com/docs/gitignore) by storing it in a [`.gitignore`](.gitignore) file. The files to omit, are, for example, files that are created in the project folder when we installed the [`titanic`](titanic) package. A list of such files for Python has [already been compiled by other people](https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore), so that we can simply copy it in our project folder.
 
 ```shell
 curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
@@ -192,11 +193,11 @@ Finally, the project structure that we have created can be explored at the [top 
 If other people would like to contribute to the project, they just need to get the repository and reproduce the working environment.
 
 ```shell
-git clone <git-repository-url>         # Download the repository from GitHub
+git clone <git-repository-url>                     # Download the repository from GitHub
 cd titanic_datascience
-mkvirtualenv --python=python3 titanic  # Create empty virtual environment
-pip install -r requirements.txt        # Install packages listed in requirements.txt
-pip install -e .                       # Install the titanic package in development mode
+mkvirtualenv --python=python3 titanic_datascience  # Create empty virtual environment
+pip install -r requirements.txt                    # Install packages listed in requirements.txt
+pip install -e .                                   # Install the titanic package in development mode
 ```
 
 Now that the project has been set up, we proceed to the next part of the tutorial where we will do some exploratory data analysis.

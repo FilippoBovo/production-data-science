@@ -7,24 +7,25 @@
 First, make sure that you have [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) installed and install the project.
 
 ```shell
-mkvirtualenv {{cookiecutter.package_name}}
-pip install {{cookiecutter.project_url}}
+mkvirtualenv {{cookiecutter.project_name}}
+pip install -e 'git+{{cookiecutter.project_url}}.git#egg={{cookiecutter.package_name}}'
 ```
 
-Then, look at the instructions that follow and those in [README.md]({{cookiecutter.package_version}}/README.md).
+> For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
 
-*[ TODO Add instructions ... ]*
+*[ TODO Add instructions to run package scritps ]*
 
 ## How to Contribute
 
 First, make sure that you have [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) installed and install the project in development mode.
 
 ```shell
-mkvirtualenv {{cookiecutter.package_name}}
+mkvirtualenv {{cookiecutter.project_name}}
 git clone {{cookiecutter.project_url}}
+cd {{cookiecutter.project_name}}
 pip install -r requirements.txt
-pip install -e {{cookiecutter.package_name}}
+pip install -e .
 pip freeze | grep -v {{cookiecutter.package_name}} > requirements.txt
 ```
 
-Then, check the [README.md]({{cookiecutter.package_version}}/README.md), and create or select a GitHub branch and have fun... :smiley:
+Then, create or select a GitHub branch and have fun... :smiley:

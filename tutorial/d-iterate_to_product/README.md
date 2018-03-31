@@ -17,7 +17,7 @@ Cycling through small exploration and refactoring steps has several advantages o
 - Modular code is faster and easier to simplify and document. Simple and documented code, together with focussed analyses, lead to a work that is easier to read, understand and change, therefore, **boosting collaboration**.
 
 
-- By following the refactor-explore cycle, **the code is kept in a state that is quick to productionise**.
+- By following the explore-refactor cycle, **the code is kept in a state that is quick to productionise**.
 
 ## Data Pipeline
 
@@ -29,7 +29,7 @@ First, we create a new Git branch, called `data_pipeline`.
 git checkout -b data_pipeline
 ```
 
-Then, we write the code of the pipeline into the module `pipelines.py` inside the [Titanic package](titanic).
+Then, we write the code of the pipeline into the module [`pipelines.py`](titanic/pipelines.py) inside the [Titanic package](titanic).
 
 [**➠   Go to the data pipeline module: *pipelines.py***](titanic/pipelines.py)
 
@@ -88,7 +88,7 @@ pip install -e 'git+https://github.com/<github_account>/titanic_datascience.git#
 
 > For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
 
-This commands installs only the package `titanic`, as specified in `setup.py`, and omits other files, like the [`exploration/`](exploration) folder or [`requirements.txt`](requirements.txt).
+This commands installs only the package [`titanic`](titanic), as specified in [`setup.py`](setup.py), and omits other files, like the [`exploration/`](exploration) folder or [`requirements.txt`](requirements.txt).
 
 In this part of the tutorial we saw how to iterate the explore-refactor cycle, how to create a data pipeline interface accessible through the command line, and how to distribute the product.
 

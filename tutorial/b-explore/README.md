@@ -6,12 +6,12 @@ In the second part of this tutorial, we explore the Titanic data and build a mod
 
 > Before starting the tutorial, remember to re-activate the Python virtual environment, if it is not already active.
 > ```shell
-> workon titanic
+> workon titanic_datascience
 > ```
 
 ## Branching
 
-In software development, [branching](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is used to isolate the development of new features so that people do not interfere with each other when working on different features. Branching can be easily extended to data science, where instead of developing new features, we explore different aspects of the data.
+In software development, [branching](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) is used to isolate the development of new features. In this way, people working on different features do not interfere with each other. Branching can be easily extended to data science, where instead of developing new features, we explore different aspects of the data.
 
 We start by creating a new branch called `predict_passenger_survival`.
 
@@ -19,7 +19,7 @@ We start by creating a new branch called `predict_passenger_survival`.
 git checkout -b predict_passenger_survival
 ```
 
-> It is important to use explicit names for branching, so that other people can easily understand the purpose of the branch.
+> It is important to use explicit names for branching, so that other people can easily understand the purpose of each branch.
 
 ## Tools
 
@@ -46,7 +46,7 @@ In this tutorial, as exploratory tool we choose the Jupyter Notebook as it is a 
 
 ```shell
 pip install jupyter
-python -m ipykernel install --user --name=titanic  # Install the Jupyter kernel
+python -m ipykernel install --user --name=titanic_datascience  # Install the Jupyter kernel
 ```
 
 We also need some other data science packages.
@@ -104,7 +104,7 @@ As an example, if this project were to expand, the structure of the folder `expl
         📄 README.md
 ```
 
-In this part of the tutorial we saw a simple data analysis using the Jupyter Notebook and suggested some rules to ease collaborations and develop clear exploratory analyses. In the next part of the tutorial we will refactor the analysis of this part into the [Titanic package](titanic) that we prepared in the [previous section](../a-setup).
+In this part of the tutorial we saw a simple data analysis using the Jupyter Notebook and suggested some rules to ease collaborations and develop clear exploratory analyses. In the next part of the tutorial, we will refactor the analysis of this part into the [Titanic package](titanic) that we prepared in the [previous section](../a-setup).
 
 [**➠   Go to the next part: *C - Refactor***](../c-refactor)
 

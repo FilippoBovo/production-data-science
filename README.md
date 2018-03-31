@@ -6,7 +6,7 @@ Data scientists, like software developers, implement tools using computer code. 
 
 <!--What-->
 
-This guide attempts to merge the gap that data scientists may have in software development practices. We will look at a data science workflow in Python that adapts ideas from software development that ease collaborations and keeps the project in a state that is easy to productionise.
+This guide attempts to merge the gap that data scientists may have in software development practices. We will look at a data science workflow in Python that adapts ideas from software development that ease collaborations and keeps a project in a state that is easy to productionise.
 
 <!--How-->
 

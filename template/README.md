@@ -29,8 +29,8 @@ Create a virtual environment and install the package.
 
 ```shell
 cd <project_name>
-mkvirtualenv <package_name>
-pip install -e <package_name>
+mkvirtualenv <project_name>
+pip install -e .
 pip freeze | grep -v <package_name> > requirements.txt
 git init
 git add .
@@ -44,7 +44,7 @@ Here, *\<package_name\>* is the name of the Python package to be used to product
 Moreover, if you are planning to use the Jupyter Notebook, you have to install the kernel of the environment.
 
 ```shell
-python -m ipykernel install --user --name <package_name>
+python -m ipykernel install --user --name <project_name>
 ```
 
 Now, create a branch, switch to it,
