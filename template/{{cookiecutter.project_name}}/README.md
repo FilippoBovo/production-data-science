@@ -28,6 +28,6 @@ pip install -e .
 pip freeze | grep -v {{cookiecutter.package_name}} > requirements.txt
 ```
 
-> For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
+> For a private repository accessible only through an SSH authentication, substitute `https://github.com/` with `git@github.com:`.
 
 Then, create or select a GitHub branch and have fun... 
