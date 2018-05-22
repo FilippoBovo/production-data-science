@@ -27,7 +27,6 @@ setup(
     packages=['titanic'],
     install_requires=[
         'pypandoc>=1.4',
-        'pyyaml>=3.12',
         'watermark>=1.5.0',
         'pandas>=0.20.3',
         'scikit-learn>=0.19.0',

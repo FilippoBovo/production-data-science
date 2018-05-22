@@ -101,24 +101,6 @@ Putting all together, we get the following project structure.
 
 Now that the project structure has been set up, _**note** that all the commands in this tutorial are run from the root folder of the project_.
 
-## Logging
-
-Logging is an important task for software development that should handle the messages that help users understand what the code does. With the [Python logging module](https://docs.python.org/3/library/logging.html) we can handle messages in different ways using configuration files, without having to change the code.
-
-> Note that it is a good practice to [replace the less flexible `print` function with log messages to the console](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/). 
-
-In our case, we have two different places where we want to display messages: the terminal, when running command line applications, and interactive editors, like the [Jupyter notebook](http://jupyter.org/) or [Spyder](https://pythonhosted.org/spyder/), when doing explorative analysis. In the terminal, it is useful to display the time, the Python module where the message comes from and the message level (debug, info, warning, ...). In interactive editors, most of the time it is enough to display just the message.
-
-To handle these two different ways of displaying data, we create two configuration files,  [`titanic/logging.yml`](titanic/logging.yaml) for messages to the terminal and [`exploration/logging.yml`](exploration/logging.yaml) for messages, for example, in Jupyter notebooks. These configuration files use the [YAML format](https://en.wikipedia.org/wiki/YAML), as it is more popular and flexible than the [standard Python configuration files](https://docs.python.org/3/library/configparser.html). For this, we need to install the [PyYAML](https://github.com/yaml/pyyaml) package.
-
-```python
-pip install pyyaml==3.12
-```
-
-Since the Python logging module does not natively support logging configuration files in YAML format, we create the file [`titanic/log.py`](titanic/log.py) with the function `load_yaml_config()` to load them. We will see how to use this function in the [next section](../b-explore) of the tutorial.
-
-> In this tutorial we limit ourselves to messages displayed on the screen as this project is simple. When a project becomes more complex, it is useful to [write log messages to files](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/).
-
 ## Reproducibility
 
 In order for other people to be able to reproduce the same environment that we are using, we create the file [`requirements.txt`](requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
@@ -136,8 +118,7 @@ We also add the packages we installed as [minimal package requirements](https://
 setup(
 	...
     install_requires=[
-      	'pypandoc>=1.4',
-        'pyyaml>=3.12',
+      	'pypandoc>=1.4'
     ]
 )
 ```
@@ -178,11 +159,8 @@ Finally, the project structure that we have created can be explored at the [top 
 📁 exploration/
     📁 data/
         📄 titanic.csv
-    📄 logging.yaml
 📁 titanic/
     📄 __init__.py
-    📄 log.py
-    📄 logging.yaml
 📄 .gitignore
 📄 README.md
 📄 requirements.txt

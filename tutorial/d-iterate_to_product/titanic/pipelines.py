@@ -1,8 +1,6 @@
 import logging
 import pandas as pd
-from titanic import log, data, models
-
-log.load_yaml_config()
+from titanic import data, models
 
 
 def run_titanic_analysis(filename):

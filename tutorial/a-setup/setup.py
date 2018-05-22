@@ -26,7 +26,6 @@ setup(
     license='MIT',
     packages=['titanic'],
     install_requires=[
-        'pypandoc>=1.4',
-        'pyyaml>=3.12',
+        'pypandoc>=1.4'
     ],
 )
