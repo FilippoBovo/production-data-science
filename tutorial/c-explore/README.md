@@ -1,4 +1,4 @@
-# B - Explore
+# C - Explore
 
 ![explore](../../resources/explore.png)
 

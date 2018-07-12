@@ -1,4 +1,4 @@
-# D - Iterate to Product
+# E - Iterate to Product
 
 ![refactor](../../resources/iterate_to_product.png)
 
