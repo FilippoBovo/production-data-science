@@ -1,2 +1,0 @@
-pypandoc==1.4
-PyYAML==3.12

@@ -67,7 +67,7 @@ pip install -e .
 
 The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local [`titanic/`](titanic) folder so that we can develop the package while it is installed. We use `.` to indicate the folder where [`setup.py`](setup.py) is.
 
-In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package [`titanic/`](titanic), as the package should only contain elements aimed at production. For the data, download `train.csv` from the [Titanic data science competition page](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
+In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package [`titanic/`](titanic), as the package should only contain elements aimed at production. For the data, download `train.csv` from the [**➠ Titanic data science competition page**](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
 
 > Note that in this case the data, being small, is store directly in our project folder. If the data is big or is confidential, it should be stored in different places, for example in a secure cloud location.
 
@@ -85,100 +85,12 @@ Putting all together, we get the following project structure.
 📄 setup.py
 ```
 
-> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to draw a diagram with a starting point, which for data science is typically data, and an end point in the form of a goal.
+> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to think about the data as a start point and the project goal as an end point, and see how exploration can bridge the gap. In our case, the start point is the Titanic data and the end point is predicting the passenger survival.
 >
-> ```
->  ———————           ———————           —————— 
-> | Input | ——————> | ? ? ? | ——————> | Goal | 
->  ———————           ———————           ——————
->
->  Titanic          Exploration       Predict
->  input                              Passenger
->  data                               Survival
-> ```
->
-> Asking question about the box in the middle may help clarify what is needed for the project. This does not mean trying to predict the details of the projects ahead of time, as this would lead to a strict template that prevents flexibility. Instead, this diagram should help understand what is necessary.
+> Asking questions about how to bridge the start and end points may help clarify what is needed for the project. This does not mean trying to predict the details of the projects ahead of time, as this would lead to a strict template that prevents flexibility. Instead, this exercise should help understand what is necessary.
 
-Now that the project structure has been set up, _**note** that all the commands in this tutorial are run from the root folder of the project_.
+The project structure that we have created can also be explored at the [top of this page](#).
 
-## Reproducibility
+Now that the project has been set up, we proceed to the next part of the tutorial where we will see how multiple people can collaborate in the project.
 
-In order for other people to be able to reproduce the same environment that we are using, we create the file [`requirements.txt`](requirements.txt) containing the [list of packages in our virtual enviroment](https://pip.pypa.io/en/stable/reference/pip_freeze/).
-
-```shell
-pip freeze | grep -v titanic > requirements.txt
-```
-
-The `grep -v titanic` command omits the local package [`titanic`](titanic) to avoid errors when installing packages from the requirement file, as we will see in section [Collaboration](#collaboration).
-
-We also add the packages we installed as [minimal package requirements](https://packaging.python.org/discussions/install-requires-vs-requirements/) to [`setup.py`](setup.py).
-
-```python
-...
-setup(
-	...
-    install_requires=[
-      	'pypandoc>=1.4'
-    ]
-)
-```
-
-We will explain how to use these additions to reproduce the same environment in section [Collaboration](#collaboration). Before that, we need to share our project.
-
-## Git
-
-To allow other people access to the work, we share it on [GitHub](https://github.com/), using the [Git](https://git-scm.com/) command line tools.
-
-Since we want to add to this repository only the necessary files, we create a [list of files to omit](https://git-scm.com/docs/gitignore) by storing it in a [`.gitignore`](.gitignore) file. The files to omit, are, for example, files that are created in the project folder when we installed the [`titanic`](titanic) package. A list of such files for Python has [already been compiled by other people](https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore), so that we can simply copy it in our project folder.
-
-```shell
-curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
-```
-
-Note that operating system specific files should be [omitted at global level](https://help.github.com/articles/ignoring-files/#create-a-global-gitignore) using the command below, matching your operating system.
-```shell
-# Unix
-curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/Linux.gitignore
-
-# Mac
-curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore
-
-# Windows
-curl -o $HOME/.gitignore_global https://raw.githubusercontent.com/github/gitignore/master/Global/Windows.gitignore
-```
-
-Next, we set up a new repository, call it `titanic_datascience`, and push the content we created into it by following the official GitHub guide:
-
-[**➠   Creating a new GitHub repository**](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
-
-> It is important to learn Git well, otherwise it can be easy to mess up a repository. You may start with [this tutorial](https://try.github.io) and later take a proper course, as, for example, the free course [How to Use Version Control in Git & GitHub](https://www.udacity.com/course/how-to-use-git-and-github--ud775)
-
-Finally, the project structure that we have created can be explored at the [top of the page](#) and is displayed in the following box.
-
-```
-📁 exploration/
-    📁 data/
-        📄 titanic.csv
-📁 titanic/
-    📄 __init__.py
-📄 .gitignore
-📄 README.md
-📄 requirements.txt
-📄 setup.py
-```
-## Collaboration
-
-If other people would like to contribute to the project, they just need to get the repository and reproduce the working environment.
-
-```shell
-git clone <git-repository-url>                     # Download the repository from GitHub
-cd titanic_datascience
-mkvirtualenv --python=python3 titanic_datascience  # Create empty virtual environment
-pip install -r requirements.txt                    # Install packages listed in requirements.txt
-pip install -e .                                   # Install the titanic package in development mode
-```
-
-Now that the project has been set up, we proceed to the next part of the tutorial where we will do some exploratory data analysis.
-
-[**➠   Go to the next part: *B - Explore***](../b-explore)
-
+[**➠   Go to the next part: *A - Collaborate***](../b-collaborate)

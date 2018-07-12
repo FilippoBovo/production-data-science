@@ -25,7 +25,4 @@ setup(
     author_email='filippo@satalia.com',  # Substitute your email
     license='MIT',
     packages=['titanic'],
-    install_requires=[
-        'pypandoc>=1.4'
-    ],
 )
