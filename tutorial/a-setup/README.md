@@ -93,4 +93,4 @@ The project structure that we have created can also be explored at the [top of t
 
 Now that the project has been set up, we proceed to the next part of the tutorial where we will see how multiple people can collaborate in the project.
 
-[**➠   Go to the next part: *A - Collaborate***](../b-collaborate)
+[**➠   Go to the next part: *B - Collaborate***](../b-collaborate)

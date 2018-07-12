@@ -1,6 +1,6 @@
 # B - Collaborate
 
-![exploration_refactoring_cycle](../../resources/setup.png)
+![exploration_refactoring_cycle](../../resources/collaborate.png)
 
 In the second part of this tutorial, we explain how multiple people can collaborate on the project.
 
