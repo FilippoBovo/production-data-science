@@ -14,7 +14,7 @@ Python has a useful feature, called [virtual environment](https://docs.python.or
 mkvirtualenv --python=python3 titanic_datascience
 ```
 
-The environment should be activated by default after creation. However, if it is not active, you can do it with the command `workon titanic_datascience`. We can use the command `which python` to get the path of the Python executable to verify that we are in the correct environment.
+The environment should be activated by default after creation. However, if it is not active, you can activate it with the command `workon titanic_datascience`. We can use the command `which python` to get the path of the Python executable to verify that we are in the correct environment.
 
 ## Project Structure
 
@@ -27,7 +27,7 @@ We start by creating a [minimal structure for a Python package](http://python-pa
 📄 setup.py
 ```
 
-> If you are not familiar with the unix terminal, use `pwd` to check which folder you are currently into, `ls` to list folders and files in the current folder, `cd path-to-folder` to move folder, `mkdir folder-name` to create a new folder and `touch file-name` to create a new file.
+> If you are unfamiliar with the unix terminal, use `pwd` to check which folder you are currently into, `ls` to list folders and files in the current folder, `cd path-to-folder` to move folder, `mkdir folder-name` to create a new folder and `touch file-name` to create a new file.
 
 Here is a description of the structure above:
 
@@ -44,7 +44,7 @@ Here is a description of the structure above:
   ```shell
   pip install pypandoc==1.4
   ```
-  > Note that when installing packages with `pip`, we specify the package version in order to make sure that the we can run the code without issues. When you will create your own setup for different projects, it is better to use updated packages by omitting the version number.
+  > Note that when installing packages with `pip`, we specify the package version in order to make sure that we can run the code without issues. When you will create your own setup for different projects, it is better to use updated packages by omitting the version number.
   > ```shell
   > pip install pypandoc
   > ```
@@ -67,11 +67,11 @@ pip install -e .
 
 The option `-e`, standing for `--editable`, installs the package in [development mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs), that is, [using a symlink](http://python-packaging.readthedocs.io/en/latest/minimal.html#creating-the-scaffolding) to the local [`titanic/`](titanic) folder so that we can develop the package while it is installed. We use `.` to indicate the folder where [`setup.py`](setup.py) is.
 
-In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder where to store data to be used _only for development_ through exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the package [`titanic/`](titanic), as the package should only contain elements aimed at production. For the data, download `train.csv` from the [**➠ Titanic data science competition page**](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
+In addition to the Python package structure just created for automation and productionisation, we need a folder that will contain exploratory analyses and a folder to store data to be used only for exploration. For these, we create the folders [`exploration/`](exploration) and [`exploration/data/`](exploration/data), which should be left outside of the  [`titanic/`](titanic) package, as the package should only contain elements aimed at production. For the data, download `train.csv` from the [**➠ Titanic data science competition page**](https://www.kaggle.com/c/titanic/data), rename it to  `titanic.csv` and store it in [`exploration/data/`](exploration/data).
 
-> Note that in this case the data, being small, is store directly in our project folder. If the data is big or is confidential, it should be stored in different places, for example in a secure cloud location.
+> Note that in this case the data, being small, is store directly in our project folder. If the data is big or confidential, it should be stored in different places, for example in a secure cloud location.
 
-> It is good to create `README.md`  files in the [`exploration/`](exploration) and [`exploration/data/`](exploration/data) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in  `README.md` so that other people will be consistent with the choice.
+> It is good to create `README.md`  files in the [`exploration/`](exploration) and [`exploration/data/`](exploration/data) folders when something about the data and exploration should be told, like good practices and conventions. For example, it may be useful to store data in zip archives to save some space, and this should be written in the `README.md` in the data folder so that other people will be consistent with the choice.
 
 Putting all together, we get the following project structure.
 
@@ -85,12 +85,12 @@ Putting all together, we get the following project structure.
 📄 setup.py
 ```
 
-> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to think about the data as a start point and the project goal as an end point, and see how exploration can bridge the gap. In our case, the start point is the Titanic data and the end point is predicting the passenger survival.
+> Although for data science this is a general base structure, some projects may require different ones. To understand what is a suitable base structure for a project, it may be helpful to think about the data as the start point and the project goal as the end point, and see how exploration can bridge the gap. In our case, the start point is the Titanic data and the end point is predicting the passenger survival.
 >
 > Asking questions about how to bridge the start and end points may help clarify what is needed for the project. This does not mean trying to predict the details of the projects ahead of time, as this would lead to a strict template that prevents flexibility. Instead, this exercise should help understand what is necessary.
 
-The project structure that we have created can also be explored at the [top of this page](#).
+The project structure that we have created can be explored at the [top of this page](#).
 
-Now that the project has been set up, we proceed to the next part of the tutorial where we will see how multiple people can collaborate in the project.
+Now that the project has been set up, we proceed to the next part of the tutorial where we will see how multiple people can collaborate on the project.
 
 [**➠   Go to the next part: *B - Collaborate***](../b-collaborate)

@@ -2,13 +2,13 @@
 
 ![refactor](../../resources/iterate_to_product.png)
 
-In the fourth part of this worked example, we discuss the iteration of the explore-refactor cycle and create a data pipeline that can be run from the command line, corresponding to our end-product.
+In the fifth part of this worked example, we discuss the iteration of the explore-refactor cycle and create a data pipeline that can be run from the command line, corresponding to our end-product.
 
 ## Explore-Refactor Cycle
 
-So far, we have seen a single exploration and a single refactoring steps. The idea of the workflow presented in this tutorial is to cycle through small exploration and refactoring steps, instead of doing a single big exploration, refactoring just at the end.
+So far, we have seen a single exploration and a single refactoring steps. The idea of the workflow presented in this tutorial is to cycle through small exploration and refactoring steps, instead of doing a single big exploration and refactoring just at the end.
 
-Cycling through small exploration and refactoring steps has several advantages over a single exploration with final refactoring.
+Cycling through small exploration and refactoring steps has several advantages over a single exploration with a final refactoring.
 
 - Cycling through refactoring and exploration keeps the code modular. In turn, **the codebase becomes smaller, and easier to reuse and fix**. In general, [viewing code as a liability](https://youtu.be/YyhfK-aBo-Y?t=17m42s), less code means less liability.
 - Modular code allows to build tests that make the **codebase robust against change**. In addition, by writing tests, it is easier to exploit the weaknesses of a system.
@@ -21,7 +21,7 @@ Cycling through small exploration and refactoring steps has several advantages o
 
 ## Data Pipeline
 
-To complete our product, we implement the work into a pipeline and create a command line tool to launch the pipeline from the terminal.
+To complete our product, we implement the work into a pipeline and create a command line tool to run the pipeline from the terminal.
 
 First, we create a new Git branch, called `data_pipeline`.
 
@@ -88,7 +88,7 @@ pip install -e 'git+https://github.com/<github_account>/titanic_datascience.git#
 
 > For a private repository accessible only through an SSH authentication, substitute `git+https://github.com` with `git+ssh://git@github.com`.
 
-This commands installs only the package [`titanic`](titanic), as specified in [`setup.py`](setup.py), and omits other files, like the [`exploration/`](exploration) folder or [`requirements.txt`](requirements.txt).
+This commands installs only the [`titanic`](titanic) package, as specified in [`setup.py`](setup.py), and omits other files, like the [`exploration/`](exploration) folder or [`requirements.txt`](requirements.txt).
 
 In this part of the tutorial we saw how to iterate the explore-refactor cycle, how to create a data pipeline interface accessible through the command line, and how to distribute the product.
 

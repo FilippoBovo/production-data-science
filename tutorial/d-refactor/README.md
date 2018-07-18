@@ -2,7 +2,7 @@
 
 ![refactor](../../resources/refactor.png)
 
-In the third part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we created in part [A - Setup](../a-setup).
+In the fourth part of this worked example, we refactor the code of the exploration in the Jupyter Notebook into the Titanic package that we created in part [A - Setup](../a-setup).
 
 ## Refactoring for Exploration
 
@@ -30,7 +30,7 @@ The same workflow is easily adapted to IDEs and text editors.
 
 Once an exploratory analysis has taken a certain direction, it is useful to refactor the parts of the code that are going into production, as, for example, the functions and methods that will form data pipelines.
 
-[Refactoring for production](https://en.wikipedia.org/wiki/Code_refactoring) is a field covering many areas, such as readability, code complexity, code architecture and testing. To make the tutorial easy to follow, the code was already made readable and the Titanic toy-example problem kept the complexity and architecture simple. So, in this section we will focus just on testing.
+[Refactoring for production](https://en.wikipedia.org/wiki/Code_refactoring) is a field covering many areas, such as readability, code complexity, code architecture and testing. To make the tutorial easy to follow, the code was already made readable in part [C - Explore](../c-explore) and the Titanic toy-example problem kept the complexity and architecture simple. So, in this section we will focus just on testing.
 
 Since refactoring data science for production is closer to software development than refactoring for exploration, we can rely more on standard testing methodologies. Moreover, data science broadly involves data preprocessing and predictive modelling, for which testing is done differently.
 
@@ -53,24 +53,30 @@ In predictive modelling, the situation is similar if we take the model predictio
 
 ## Refactoring the Notebook
 
-In this section, we refactor some of the [notebook](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the modules [`titanic/data.py`](titanic/data.py) and [`titanic/models.py`](titanic/models.py), where we put respectively functions for data processing and predictive modelling. We use this modular approach motivated by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), which states that each bit of code should be focused on a single task with a limited scope. Some reasons behind this principle are that modular files are easier to maintain, discourage the use of global variables, and encourage the use of  variables with narrow scopes and input and output parameters.
+In this section, we refactor some of the [notebook](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) code into the [`titanic`](titanic) package for production. We do this by creating the `titanic/data.py` and `titanic/models.py` modules, where we put respectively functions for data processing and predictive modelling. We use this modular approach motivated by the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), which states that each bit of code should be focused on a single task with a limited scope. Some reasons behind this principle are that modular files are easier to maintain, discourage the use of global variables, and encourage the use of  variables with narrow scopes and input and output parameters.
 
-So far we have used the `print` function to display messages. The `print` function is good during the exploration phase. However, when productionising code, it is [good practice](https://docs.python.org/3/howto/logging.html) to use the `logging` module. The [Python logging module](https://docs.python.org/3/library/logging.html) allows us to handle messages flexibly by making it easy to redirect them to the console or log files, or to change the display format of the messages. In this tutorial, we limit ourselves to messages displayed on the screen as this project is simple. When a project becomes more complex, it is useful to [write log messages to files](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/).
+So far we have used the `print` function to display messages. The `print` function is good during the exploration phase. However, when productionising code, it is a [good practice](https://docs.python.org/3/howto/logging.html) to use the `logging` module. The [Python logging module](https://docs.python.org/3/library/logging.html) allows us to handle messages flexibly by making it easy to redirect them to the console or log files, or to change the display format of the messages. In this tutorial, we limit ourselves to messages displayed on the screen as this project is simple. When a project becomes more complex, it is useful to [write log messages to files](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/).
 
 We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt), as it is more readable than the standard [Python reStructuredText format](https://www.python.org/dev/peps/pep-0287/).
 
 > When refactoring, keep in mind that [**code is read much more often than it is written**](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds).
 >
-> In particular, these four actions help a lot:
+> In particular, these four actions help:
 >
 > - Use explicit variable names
 > - Write docstrings
 > - Comment your code
 > - Commenting too much may mean that you should improve your code instead
 
-To see the refactoring, click on the following links.
+Let us start by creating a branch for the refactoring explained above.
 
-- [**➠   Refactored Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) (See orange text for refactoring.)
+```shell
+git checkout -b refactor_passenger_survival
+```
+
+On this branch, refactor the code following the following files:
+
+- [**➠   Refactored Jupyter Notebook**](exploration/predict_survival_using_logistic_regression_with_sex_age_title/analysis.ipynb) (Search for the "REFACTORED" keyword.)
 - [**➠   Data manipulation module: *data.py***](titanic/data.py)
 - [**➠   Predictive models module: *models.py***](titanic/models.py)
 
@@ -125,10 +131,10 @@ Finally, we commit the changes, merge the `predict_passenger_survival` branch wi
 git add .
 git commit -m "Refactor exploratory analysis of passenger survival predictions using ridge logistic regression"
 git checkout master 
-git merge refactor_explore_survival
+git merge refactor_passenger_survival
 git push
 ```
 
-In this part of the tutorial we saw how to refactor an exploratory analysis into the [`titanic`](titanic) package. In the next part, we will discuss how to iterate exploration and refactoring to obtain a product.
+In this part of the tutorial we saw how to refactor an exploratory analysis. In the next part, we will discuss how to iterate exploration and refactoring to obtain a product.
 
 [**➠   Go to the next part: *E - Iterate to Product***](../e-iterate_to_product)
