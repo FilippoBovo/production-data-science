@@ -30,9 +30,8 @@ The links in this tutorial should be used only when the symbol [**➠**](#) appe
 
 > Quoted text is devoted to suggestions and observations.
 
-Finally, here is a five-minute read about the [story and motivation of the data science worflow](http://datadrivenjournalism.net/resources/production_data_science).
+Finally, here is a five-minute read about the story and motivation of the data science worflow on [Medium](https://medium.com/@filippo.bovo/production-data-science-3a42dee5208) or on [Data Driven Journalism](http://datadrivenjournalism.net/resources/production_data_science).
 
 Let's start the tutorial!
 
 [**➠   Start the Tutorial**](tutorial/a-setup)
-
