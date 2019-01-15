@@ -57,7 +57,7 @@ In this section, we refactor some of the [notebook](exploration/predict_survival
 
 So far we have used the `print` function to display messages. The `print` function is good during the exploration phase. However, when productionising code, it is a [good practice](https://docs.python.org/3/howto/logging.html) to use the `logging` module. The [Python logging module](https://docs.python.org/3/library/logging.html) allows us to handle messages flexibly by making it easy to redirect them to the console or log files, or to change the display format of the messages. In this tutorial, we limit ourselves to messages displayed on the screen as this project is simple. When a project becomes more complex, it is useful to [write log messages to files](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/).
 
-We will also use the [NumPy docstring format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt), as it is more readable than the standard [Python reStructuredText format](https://www.python.org/dev/peps/pep-0287/).
+We will also use the [NumPy docstring format](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard), as it is more readable than the standard [Python reStructuredText format](https://www.python.org/dev/peps/pep-0287/).
 
 > When refactoring, keep in mind that [**code is read much more often than it is written**](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds).
 >
