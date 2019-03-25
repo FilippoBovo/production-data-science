@@ -99,7 +99,7 @@ def run_logistic_regression(X_train, X_test, y_train, y_test):
     from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import GridSearchCV
 
-    lr = LogisticRegression(random_state=0)
+    lr = LogisticRegression(random_state=0, solver='lbfgs')
 
     param_range = [2 ** x for x in range(-10, 10)]
 

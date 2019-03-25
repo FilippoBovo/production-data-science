@@ -36,7 +36,7 @@ Then, we write the code of the pipeline into the module [`pipelines.py`](titanic
 To implement the command line tool to run the pipeline, we use the [Click](http://click.pocoo.org/) library instead of the standard [argparse](https://docs.python.org/3/library/argparse.html), as Click is more [user-friendly](http://click.pocoo.org/5/why/).
 
 ```shell
-pip install click==6.7
+pip install click==7.0
 pip freeze | grep -v titanic > requirements.txt
 ```
 
@@ -48,7 +48,7 @@ setup(
     ...
     install_requires=[
         ...
-        'click>=6.7'
+        'click>=7.0'
     ],
 	...
     entry_points='''

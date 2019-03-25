@@ -86,7 +86,7 @@ For these functions, we also create unit tests in [`tests/`](tests/) by using [P
 
 ```shell
 mkdir tests/
-pip install pytest==3.2.3 pytest-runner==2.12.1
+pip install pytest==4.3.1 pytest-runner==4.4
 ```
 
 Add the following content to [`setup.py`](setup.py):
@@ -97,8 +97,8 @@ setup(
 	...
     install_requires=[
 		...
-        'pytest>=3.2.3',
-        'pytest-runner>=2.12.1',
+        'pytest>=4.3.1',
+        'pytest-runner>=4.4',
     ],
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
